@@ -56,12 +56,12 @@
 
 
                 <div class="dropdown">
-                  <button class="btn btn-secondary" >Acciones</button>
+                  <button class="btn btn-secondary">Acciones</button>
                   <div class="dropdown-content">
                     <a class="dropdown-item mb-2" href="/maquinas_disponibles/{{id}}">Ver</a>
-                  
+
                     <a class="dropdown-item mb-2" href="/cargar-foto/{{id}}">Foto destacada</a>
-                  
+
                     <a class="dropdown-item mb-2" href="/cargar-galeria/{{id}}">Cargar galería</a>
                   </div>
                 </div>
@@ -77,6 +77,7 @@
 
 
           <!--Galería de la máquina -->
+          {{#if fullInfoGallery}}
 
           <div id="carouselExample" class="carousel mt-2 slide text-center">
             <div class="carousel-inner">
@@ -84,8 +85,16 @@
               {{#each fullInfoGallery}}
 
               <div class="carousel-item{{#unless @index}} active{{/unless}}">
+                <div class="row">
+                  <div class="col-md-4  d-flex justify-content-end aling-items-center">
+                    <a href="/foto-galeria/borrar/{{id_foto}}/{{id_maquinaria}}" class="btn btn-danger btn-sm "><i
+                        class='bx bxs-trash' style='color:#ffffff'></i></a>
+                  </div>
+                </div>
 
                 <img src="{{url}}" style="border-radius:10px ;" class="img-fluid" alt="Foto maquinaria">
+
+
 
               </div>
 
@@ -103,6 +112,10 @@
             </button>
           </div>
 
+          {{else}}
+          <p class="mt-3">No hay imágenes cargadas</p>
+
+          {{/if}}
           <!-- Fin de la galería -->
 
 
@@ -231,8 +244,6 @@
 
 
     <style>
-   
-
       /* Estilos para el botón desplegable */
       .dropdown {
         position: relative;
@@ -251,35 +262,35 @@
       .dropdown:hover .dropdown-content {
         display: block;
       }
-   
 
 
-    /* Estilo para los botones del carrusel */
-    .carousel-control-prev-icon,
-    .carousel-control-next-icon {
-    background-color: hsla(45, 100%, 51%);
-    /* Fondo similar al color de advertencia de Bootstrap */
-    color: #333;
-    border: none;
-    /* Sin borde */
-    font-size: 24px;
-    /* Tamaño de fuente */
-    opacity: 0.8;
-    /* Opacidad al estado normal */
-    transition: opacity 0.3s ease;
-    /* Transición suave */
-    border-radius: 10px;
-    }
 
-    .carousel-control-prev:hover,
-    .carousel-control-next:hover {
-    opacity: 1;
-    /* Opacidad al pasar el ratón por encima */
-    }
+      /* Estilo para los botones del carrusel */
+      .carousel-control-prev-icon,
+      .carousel-control-next-icon {
+        background-color: hsla(45, 100%, 51%);
+        /* Fondo similar al color de advertencia de Bootstrap */
+        color: #333;
+        border: none;
+        /* Sin borde */
+        font-size: 24px;
+        /* Tamaño de fuente */
+        opacity: 0.8;
+        /* Opacidad al estado normal */
+        transition: opacity 0.3s ease;
+        /* Transición suave */
+        border-radius: 10px;
+      }
 
-    /* Cambiar el color del ícono de la flecha siguiente */
-    .carousel-control-next-icon::before {
-    color: #333;
-    /* Color negro metálico */
-    }
+      .carousel-control-prev:hover,
+      .carousel-control-next:hover {
+        opacity: 1;
+        /* Opacidad al pasar el ratón por encima */
+      }
+
+      /* Cambiar el color del ícono de la flecha siguiente */
+      .carousel-control-next-icon::before {
+        color: #333;
+        /* Color negro metálico */
+      }
     </style>

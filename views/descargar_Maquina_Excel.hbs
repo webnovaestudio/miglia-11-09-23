@@ -1,0 +1,70 @@
+<div class="container-fluid">
+    <div class="row">
+
+        <div class="col-md-2 sinpadding">
+            {{> lateralBeta}}
+        </div>
+        <!--DENTRO DE ESTE DIV VA: la cabecera y el contenido-->
+
+
+        <div class="col-md-10 sinpadding">
+
+            {{> cabeceraBeta}}<!--cabecera-->
+
+
+            <div class="row box-ind sinpadding"><!-- Dentro de este div va todo el contenido-->
+
+
+                <div class="col-md-12 box-cajas">
+
+
+                    <h4 class="m-3">Descargar Datos En Formato Excel</h4>
+
+                    <div class="container-fluid">
+                        <div class="row">
+                            <form action="/informe_maquinas/create" method="post" class="form-group">
+
+                                <label class="form-label" for="Maquinaria">Seleccione Categoría y Modelo</label>
+                                <select class="form-control" name="tipo_de_maquinaria" id="">
+                                    {{#each maquinarias}}
+                                    <option value="{{tipo_de_maquinaria}}">{{tipo_de_maquinaria}}</option>
+                                    {{/each}}
+                                </select>
+
+                                <label class="form-label" for="maquinaria_modalidad">Seleccione la Modalidad de
+                                    maquinaria</label>
+                                <select class="form-control" name="maquinaria_modalidad" id="">
+
+                                    <option value="Usada">Usada</option>
+                                    <option value="Nueva">Nueva</option>
+
+                                </select>
+
+
+                                <label class="form-label" for="estado_del_equipo">Seleccione el Estado del
+                                    equipo</label>
+                                <select class="form-control" name="estado_del_equipo" id="">
+                                    <option value="A supervisar">A supervisar</option>
+                                    <option value="En buen estado">En buen estado</option>
+                                    <option value="Regular">Regular</option>
+                                    <option value="Muy buena">Muy buena</option>
+                                    <option value="0km">0km</option>
+
+                                </select>
+                                <label class="form-label" for="disponibilidad">Seleccione la Disponibilidad</label>
+                                <select class="form-control" name="disponibilidad" id="">
+
+                                    <option value="En consignacion">En consignacion</option>
+                                    <option value="Propia">Propia</option>
+
+                                </select>
+
+
+
+                                <button type="submit" class="w-100 btn btn-warning mt-5">Descargar Datos</button>
+
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>

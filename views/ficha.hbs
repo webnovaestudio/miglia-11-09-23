@@ -1,0 +1,184 @@
+<div class="container-fluid">
+  <div class="row">
+
+    <!--DENTRO DE ESTE DIV VA: la cabecera y el contenido-->
+
+    <div class="col-md-12 sinpadding" style="background-color: #000;">
+
+      {{> cabecera_ficha}}<!--cabecera-->
+
+
+      <div class="row box-ind sinpadding"><!-- Dentro de este div va todo el contenido-->
+
+        <div class="col-md-12 box-cajas">
+
+
+          <div class="container-fluid">
+
+            <div class="row">
+
+              <div class="col-md-12 txt-contenido-single">
+
+                <!--Galería de la máquina -->
+
+                <div id="carouselExample" class=" mt-2 carousel slide text-center">
+                  <div class="carousel-inner">
+
+                    {{#each urls}}
+
+                    <div class="carousel-item{{#unless @index}} active{{/unless}}">
+
+                      <img style="border-radius:10px ;" src="{{this}}" class="img-fluid" alt="Foto maquinaria">
+
+                    </div>
+
+                    {{/each}}
+
+                  </div>
+
+                  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample"
+                    data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                  </button>
+                  <button class="carousel-control-next" type="button" data-bs-target="#carouselExample"
+                    data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                  </button>
+                </div>
+
+                <!-- Fin de la galería -->
+
+                <hr style="background-color: #000;">
+
+
+                <!--Foto destacada-->
+                <div class="row mt-2 mb-2">
+                  <div class="col-md-3">
+                    <div class="card" style="width: 18rem;">
+
+                      <img class="card-img-top" src="{{url_foto}}" class="custom-img img-fluid"
+                        alt="No hay imagen cargada">
+                      <div class="card-body" style="display: flex;">
+
+                        <a href="{{url_foto}}" target="_blank" class="btn btn-primary d-flex align-items-center">Ver</a>
+
+                        <h5 style="display: inline-block;" class="ml-2 mt-2">Foto destacada</h5>
+                      </div>
+                    </div>
+                  </div>
+
+                </div>
+                <!--Fin foto destacada-->
+
+                <div class="col-md-12 titulo-single-maquina">
+                  {{#each maquinaPorId}}
+                  {{machine}}
+                  {{modelo_maquina}}
+                  {{/each}}</div>
+
+
+
+                <div class="container-fluid">
+                  {{#each maquinaPorId}}
+                  <div class="row">
+
+                    <div class="col-md-4">
+                      <p>
+                        <strong> Modelo: </strong>{{#if modelo_maquina}} {{modelo_maquina}} {{else}} No hay info.
+                        {{/if}}</br>
+                        <strong>Tipo de máquina: </strong> {{machine}}</br>
+
+                      </p>
+                    </div>
+
+                    <div class="col-md-4">
+                      <p>
+                        <strong>Disponibilidad: </strong>{{disponibilidad}}</br>
+                        <strong>Estado: </strong> {{estado_del_equipo}}</br>
+
+                      </p>
+                    </div>
+
+                    <div class="col-md-4">
+                      <p>
+
+                        <strong>Modalidad: </strong> {{#if maquinaria_modalidad}} {{maquinaria_modalidad}} {{else}} No
+                        definido{{/if}}
+                        </br>
+                        <strong>Precio: </strong> {{#if precio}} {{precio}} {{else}} Precio no definido {{/if}}
+
+                      </p>
+                    </div>
+
+                    {{/each}}
+
+
+                    <div class="textarea-container">
+                      {{#each maquinaPorId}}
+                      <textarea disabled name="observaciones"
+                        placeholder="Escribe aquí las observaciones">{{caracteristicas}}</textarea>
+                      {{/each}}
+                    </div>
+
+                  </div>
+
+
+                </div>
+              </div>
+            </div>
+          </div>
+        </div><!--fin col-md-12 box-cajas-->
+
+      </div><!--fin row box-ind-->
+
+    </div><!--fin col-md-10-->
+
+  </div><!--fin row-->
+
+  <div><!--fin container fluid-->
+
+
+
+    <script>
+      // Llama a esta función después de que se cargue la página
+      $(document).ready(function () {
+        $('.carousel').carousel();
+      });
+    </script>
+
+
+
+
+
+    <style>
+      /* Estilo para los botones del carrusel */
+      .carousel-control-prev-icon,
+      .carousel-control-next-icon {
+        background-color: hsla(45, 100%, 51%);
+        /* Fondo similar al color de advertencia de Bootstrap */
+        color: #333;
+        border: none;
+        /* Sin borde */
+        font-size: 24px;
+        /* Tamaño de fuente */
+        opacity: 0.8;
+        /* Opacidad al estado normal */
+        transition: opacity 0.3s ease;
+        /* Transición suave */
+        border-radius: 10px;
+      }
+
+      .carousel-control-prev:hover,
+      .carousel-control-next:hover {
+        opacity: 1;
+        /* Opacidad al pasar el ratón por encima */
+      }
+
+      /* Cambiar el color del ícono de la flecha siguiente */
+      .carousel-control-next-icon::before {
+        color: #333;
+        /* Color negro metálico */
+      }
+    </style>

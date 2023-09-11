@@ -1,0 +1,109 @@
+{{#if loged}}
+
+<div class="row">
+	<div class="col-md-4">
+		<p>Ya estas logueado, vuelve</p>
+	</div>
+	<div class="col-md-4"><a href="/panel_de_control"> Ir a panel de control</a></div>
+</div>
+
+{{else}}
+</div>
+<div class="container-fluid fondo-gris-login">
+	<div class="row">
+		<div class="col-md-4">
+		</div>
+		<div class="col-md-4 estilo-box-login">
+
+			<div align="center"><img src="/images/migliazza-maquinarias.png" width="70%" />
+			</div>
+			<form action="/login/create" method="post">
+				<div class="form-group">
+
+					<label for="exampleInputEmail1">
+						<p style="color: #fff;">Dirección de mail</p>
+					</label>
+					<input type="email" name="correo_electronico" class="form-control fondo-gris-form"
+						id="exampleInputEmail1" />
+				</div>
+				<div class="form-group">
+
+					<label for="exampleInputPassword1">
+						<p style="color: #fff;">Contraseña</p>
+					</label>
+					<input type="password" name="contraseña" class="form-control fondo-gris-form"
+						id="exampleInputPassword1" />
+				</div>
+				<div class="form-group">
+
+					<div class="checkbox">
+
+
+						<label for="Recordar">
+							<a href="#">Olvide mi contraseña </a></label>
+					</div>
+					<button type="submit" class="btn btn-outline-warning w-100">
+						Entrar
+					</button>
+			</form>
+		</div>
+		<div class="col-md-4">
+		</div>
+	</div>
+</div>
+
+{{/if}}
+<style>
+	.espacio-bloque {
+		margin: 20px;
+		padding-top: 50px;
+		padding-bottom: 50px;
+	}
+
+	.estilo-box-login {
+		background-color: #000;
+		border-radius: 12px;
+		margin: 20px;
+		padding-top: 30px;
+		padding-right: 30px;
+		padding-bottom: 30px;
+		padding-left: 30px;
+	}
+
+	.fondo-gris-login {
+		float: left;
+		width: 100%;
+		padding-top: 80px;
+		padding-bottom: 80px;
+	}
+
+	body {
+		margin-left: 0px;
+		margin-top: 0px;
+		margin-right: 0px;
+		margin-bottom: 0px;
+		background-color: #CCCCCC;
+	}
+
+	.boton-rojo {
+		background-color: #CC3300;
+		width: 100%;
+		border-radius: 10px;
+		border-top-width: 0px;
+		border-right-width: 0px;
+		border-bottom-width: 0px;
+		border-left-width: 0px;
+		margin-top: 20px;
+		padding-top: 15px;
+		padding-bottom: 15px;
+	}
+
+	.boton-rojo a:hover {
+		background-color: #993300;
+	}
+
+	.fondo-gris-form {
+		background-color: #fff;
+		padding-top: 8px;
+		padding-bottom: 8px;
+	}

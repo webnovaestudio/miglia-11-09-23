@@ -1,0 +1,226 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-2 sinpadding">
+      {{> lateralBeta}}
+    </div>
+    <!--DENTRO DE ESTE DIV VA: la cabecera y el contenido-->
+    <div class="col-md-10 sinpadding">
+      {{> cabeceraBeta}}<!--cabecera-->
+      {{#if all}}
+
+      <div class="row box-ind sinpadding"><!-- Dentro de este div va todo el contenido-->
+        <div class="col-md-12 box-cajas">
+
+          <div class="row mt-2 mb-2">
+            <div class="col-md-4">
+              <h4>Usuarios</h4>
+            </div>
+          </div>
+
+          <div class="list-opciones">
+            <a class="btn btn-warning" href="/empleados/carga_empleado"> <i class='bx bx-plus-circle'></i> Cargar
+              usuario</a>
+            <a class="btn btn-danger" href="/emplados_deshabitados"> <i class='bx bx-folder-minus'></i> Usuarios
+              eliminados</a>
+            <details class="btn btn-info" style="display: inline-block;">
+              <summary>Filtrar por perfil de usuario</summary>
+              <a class="btn btn-link" href="/empleados/vendedores">Ver Vendedores</a>
+              <a class="btn btn-link" href="/empleados/repuesteros">Ver Repuesteros</a>
+              <a class="btn btn-link" href="/empleados/macanicos">Ver Mecánicos</a>
+            </details>
+          </div>
+
+          {{#each allEmpleados}}
+          <div class="container-fluid espacio-bloque">
+            <div class="row">
+              <div class="col-md-1 fondo-color-azul-icono">
+                <i class='bx bx-user'></i>
+              </div>
+              <div class="col-md-11 fondo-color-azul-contenido">
+                <div class="row">
+
+                  <div class="col-md-4 propiedad-columna-bloque-txt">
+                    <div>
+                      <strong>Nombre:</strong> {{nombre_vendedor}}
+                    </div>
+                    <div>
+                      <strong>Perfil:</strong> {{perfil}}
+                    </div>
+                  </div>
+
+                  <div class="col-md-4 propiedad-columna-bloque-txt">
+                    <div>
+                      <strong>Teléfono: </strong> {{telefono}}
+                    </div>
+
+                    <div>
+                      <strong>Mail: </strong> {{correo_electronico}}
+                    </div>
+                  </div>
+
+                  <div class="col-md-4 propiedad-columna-bloque-boton">
+
+                    <details class="btn btn-primary">
+                      <summary>Detalles</summary>
+                      <a href="/empleados/{{id}}">Ver</a>
+                      <br>
+                      <a href="/empleados/eliminar/{{id}}">Borrar</a>
+                    </details>
+                  </div><!--Findde Col md3 -->
+
+                </div>
+              </div>
+            </div>
+          </div>
+          {{/each}}
+
+          {{else}}
+          <div class="container-fluid">
+            <div class="row box-ind sinpadding">
+              <div class="col-md-12 box-cajas">
+                <div class="row">
+                  <div class="col-md-12 txt-contenido-single">
+
+                    <div class="row">
+
+                      {{#each empleado}}
+
+                      <div class="col-md-3 mt-3 mb-3">
+                        <a class="btn btn-danger" href="/empleados/editar/{{id}}">Editar</a>
+                      </div>
+
+                      <div class="col-md-3 mt-3 mb-3">
+                        <a class="btn btn-secondary" href="/empleados/a_admin/{{id}}">Hacer admin</a>
+                      </div>
+
+                      <div class="col-md-3 mt-3 mb-3">
+                        <a class="btn btn-secondary" href="/empleados/a_editor/{{id}}">Hacer editor</a>
+                      </div>
+
+                      {{/each}}
+
+                    </div>
+
+
+
+
+                    {{#each empleado}}
+                    <div class="row mt-2 mb-2">
+                      <div class="col-md-4">
+                        <h4>Datos Completos de {{nombre_vendedor}}</h4>
+                      </div>
+                    </div>
+                    {{/each}}
+
+                    <div class="row">
+                      <div class="col-md-6">
+                        <div class="row">
+                          <div class="col-md-6">
+                            Nombres:
+                          </div>
+
+                          <div class="col-md-6 negrita">
+                            {{#each empleado}}
+                            {{nombre_vendedor}}
+                            {{/each}}
+                          </div>
+
+                          <div class="col-md-6">
+                            Rol:
+                          </div>
+
+                          <div class="col-md-6 negrita">
+                            {{#each empleado}}
+                            {{rol_de_usuario}}
+                            {{/each}}
+                          </div>
+
+
+                          <div class="col-md-6">
+                            Perfil:
+                          </div>
+
+                          <div class="col-md-6 negrita">
+                            {{#each empleado}}
+                            {{perfil}}
+                            {{/each}}
+                          </div>
+
+                          <div class="col-md-6">
+                            Correo electrónico:
+                          </div>
+
+                          <div class="col-md-6 negrita">
+                            {{#each empleado}}
+                            {{correo_electronico}}
+                            {{/each}}
+                          </div>
+
+                        </div>
+                      </div><!--Fin de Columna -->
+
+                      <div class="col-md-6">
+                        <div class="row">
+                          <div class="col-md-6">
+                            Teléfono:
+                          </div>
+
+                          <div class="col-md-6 negrita">
+                            {{#each empleado}}
+                            {{telefono}}
+                            {{/each}}
+                          </div>
+
+                          <div class="col-md-6">
+                            Provincia:
+                          </div>
+
+                          <div class="col-md-6 negrita">
+                            {{#each empleado}}
+                            {{ubicacion}}
+                            {{/each}}
+                          </div>
+
+                          <div class="col-md-6">
+                            Zona comercial:
+                          </div>
+
+                          <div class="col-md-6 negrita">
+                            {{#each empleado}}
+                            {{zona_comercial}}
+                            {{/each}}
+                          </div>
+                          <!-- lO USO PARA GENERAR UNA COLUM PERO NO LO USO. Pero es util para que no se rompa la maqueta por ahora-->
+                          <div class="col-md-6">
+
+                          </div>
+
+                          <div class="col-md-6 negrita">
+
+                          </div>
+                        </div>
+                      </div><!--Fin de Columna -->
+
+                      <div class="col-md-12 observaciones-single">
+                        {{#each empleado}}
+                        <div class="row mt-2 mb-2">
+                          <div class="col-md-4">
+                            <h4>Comentarios: </h4>
+                          </div>
+                        </div>
+                        <p>{{observaciones}}</p>
+                        {{/each}}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          {{/if}}
+
+        </div><!--fin col-md-12 box-cajas-->
+      </div><!--fin row box-ind-->
+    </div><!--fin col-md-10-->
+  </div><!--fin row-->
+  <div><!--fin container fluid-->

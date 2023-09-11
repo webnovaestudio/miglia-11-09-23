@@ -1,0 +1,101 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-2 sinpadding">
+      {{> lateralBeta}}
+    </div>
+    <!--DENTRO DE ESTE DIV VA: la cabecera y el contenido-->
+    <div class="col-md-10 sinpadding">
+      {{> cabeceraBeta}}<!--cabecera-->
+      <div class="row box-ind sinpadding"><!-- Dentro de este div va todo el contenido-->
+
+        <div class="col-md-12 box-cajas">
+
+          <div class="row mb-2 mt-2">
+            <div class="col-md-4">
+              <h4>Editar usuario</h4>
+            </div>
+          </div>
+
+          {{#each empleadoElegido}}
+          <form class="form-group" action="/empleados/editar/{{id}}" method="post">
+            <div class="row">
+              <div class="col-md-4">
+                <label for="nombre_vendedor">Nombre</label>
+                <input class="form-control" type="text" value="{{nombre_vendedor}}" name="nombre_vendedor">
+              </div>
+
+              <div class="col-md-4">
+                <label for="rol_de_usuario"> Rol del usuario</label>
+                <select class="form-control" name="rol_de_usuario" id="">
+                  <option value="1" selected>Elige una opción</option>
+                  <option value="1">Administrador</option>
+                  <option value="0">Editor</option>
+                </select>
+              </div>
+
+              <div class="col-md-4">
+                <label for="perfil">Perfil</label>
+                <select class="form-control" name="perfil" id="">
+                  <option selected value="{{perfil}}">{{perfil}}</option>
+                  <option value="Vendedor">Vendedor</option>
+                  <option value="Repuestero">Repuestero</option>
+                  <option value="Servicio Mecànico">Servicio Mecànico</option>
+                </select>
+              </div>
+
+            </div>
+
+            <div class="row">
+              <div class="col-md-4">
+                <label for="teléfono">Teléfono</label>
+                <input class="form-control" type="text" name="telefono" id="" value="{{telefono}}">
+              </div>
+              <div class="col-md-4">
+                <label for="correo_electronico">Correo electrónico</label>
+                <input class="form-control" type="email" name="correo_electronico" id="" value="{{correo_electronico}}">
+              </div>
+              <div class="col-md-4">
+                <label for="ubicación">Ubicación</label>
+                <input class="form-control" type="text" name="ubicacion" id="" value="{{ubicacion}}">
+              </div>
+            </div>
+
+            <div class="row">
+
+              <div class="col-md-4">
+                <label for="Zona Comercial">Zona Comercial</label>
+                <select class="form-control" name="zona_comercial" id="">
+                  <option value="{{zona_comercial}}" selected>{{zona_comercial}}</option>
+                  <option value="Zonar Sur">Zonar Sur</option>
+                  <option value="Zona Norte">Zona Norte</option>
+                  <option value="Zona Centro">Zona Centro</option>
+                </select>
+              </div>
+
+            </div>
+
+            <div class="textarea-container">
+              <textarea name="observaciones" placeholder="Escribe aquí las observaciones">{{observaciones}}</textarea>
+            </div>
+
+            {{/each}}
+
+            <div class="row">
+              <div class="col-md-3 mt-3 mb-3">
+                <button type="submit" class="btn btn-warning">Aplicar cambios</button>
+              </div>
+            </div>
+
+          </form>
+
+
+        </div><!--fin col-md-12 box-cajas-->
+
+      </div><!--fin row box-ind-->
+
+    </div><!--fin col-md-10-->
+
+  </div><!--fin row-->
+
+
+  <div><!--fin container fluid-->

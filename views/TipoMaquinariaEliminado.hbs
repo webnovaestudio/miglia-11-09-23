@@ -1,0 +1,67 @@
+<div class="container-fluid">
+  <div class="row">
+
+    <div class="col-md-2 sinpadding">
+      {{> lateralBeta}}
+    </div>
+    <!--DENTRO DE ESTE DIV VA: la cabecera y el contenido-->
+
+    <div class="col-md-10 sinpadding">
+
+      {{> cabeceraBeta}}<!--cabecera-->
+
+
+      <div class="row box-ind sinpadding"><!-- Dentro de este div va todo el contenido-->
+
+        <div class="col-md-12 box-cajas">
+
+
+          <div class="row mb-2 mt-2">
+            <div class="col-md-4">
+              <h4>Tipo maquinaria eliminada</h4>
+            </div>
+          </div>
+
+          <div class="container-fluid">
+            <div class="row">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th scope="col">Tipo de maquinaria</th>
+                    <th scope="col">Acciones</th>
+                  </tr>
+
+                </thead>
+                <tbody>
+                  {{#each machine_type_deleted}}
+                  <tr>
+
+                    <td>{{machine}}</td>
+                    <td>
+                      <details class="btn btn-primary" style="display: flex; justify-content:flex-end;">
+                        <summary>Detalles</summary>
+
+                        <a style="display: block;" href="/listado_tipo_maquinaria/habilitar/{{id}}">habilitar</a>
+
+                      </details>
+                    </td>
+
+                  </tr>
+                  {{/each}}
+
+                </tbody>
+
+              </table>
+
+
+            </div><!--fin col-md-12 box-cajas-->
+
+          </div><!--fin row box-ind-->
+
+        </div><!--fin col-md-10-->
+
+      </div><!--fin row-->
+
+
+      <div><!--fin container fluid-->
+        <!---->

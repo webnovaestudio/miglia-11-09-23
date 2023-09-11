@@ -1,0 +1,134 @@
+migliazzav10-production.up.railway.app
+empleados son usuarios
+Este es un archivo de configuración `package.json`, que se utiliza comúnmente en proyectos de Node.js para gestionar las dependencias y scripts del proyecto. Cada clave en el archivo tiene un propósito específico:
+
+- `"name": "crm_migliazza"`: Es el nombre del proyecto o paquete. En este caso, el nombre del proyecto es "crm_migliazza".
+
+- `"version": "16.14.2"`: Indica la versión del proyecto. En este caso, la versión es "16.14.2".
+
+- `"description": "A crm for Migliazza"`: Proporciona una descripción breve del proyecto, que en este caso es "Un CRM para Migliazza".
+
+- `"main": "app.js"`: Especifica el punto de entrada principal de la aplicación, que es "app.js".
+
+- `"engines": { "node": "14.x" }`: Define la versión mínima de Node.js necesaria para ejecutar la aplicación, que es la versión 14.x.
+
+- `"scripts": { ... }`: Define una serie de scripts que se pueden ejecutar usando el comando "npm run <script-name>". En este caso, hay dos scripts definidos:
+  - `"dev": "nodemon app.js"`: Ejecuta la aplicación usando `nodemon`, que es una herramienta que reinicia automáticamente la aplicación cuando se detectan cambios en los archivos durante el desarrollo.
+  - `"start": "node app.js"`: Ejecuta la aplicación utilizando el comando `node app.js`.
+
+- `"dependencies": { ... }`: Enumera las dependencias del proyecto que son necesarias para su funcionamiento en un entorno de producción. Algunas de las dependencias incluidas son:
+  - `"@google-cloud/storage": "^6.12.0"`: Cliente para interactuar con Google Cloud Storage.
+  - `"@hapi/joi": "^17.1.1"`: Biblioteca para validación de datos.
+  - `"bcryptjs": "^2.4.3"`: Biblioteca para encriptación de contraseñas.
+  - `"cookie-parser": "~1.4.4"`: Middleware para analizar cookies en las solicitudes HTTP.
+  - `"express": "^4.18.2"`: Framework web para Node.js.
+  - `"express-session": "^1.17.3"`: Middleware para la gestión de sesiones en Express.
+  - `"multer": "^1.4.5-lts.1"`: Middleware para el manejo de formularios multipart en Express.
+  - `"mysql": "^2.18.1"`: Cliente para interactuar con bases de datos MySQL.
+  - `"sharp": "^0.32.4"`: Biblioteca para el procesamiento de imágenes.
+  - `"uuid": "^9.0.0"`: Generador de identificadores únicos.
+
+- `"devDependencies": { ... }`: Enumera las dependencias que son necesarias solo en entornos de desarrollo, lo que significa que no son necesarias para el funcionamiento en producción. Algunas de las dependencias incluidas son:
+  - `"@vercel/node": "^2.5.7"`: Versión personalizada de Node.js para Vercel, una plataforma de despliegue de aplicaciones.
+  - `"nodemon": "^3.0.1"`: Herramienta para reiniciar automáticamente la aplicación durante el desarrollo.
+
+Todas estas dependencias se instalan en el proyecto a través del comando `npm install`, y se guardan en la carpeta "node_modules" en la raíz del proyecto. Con todas estas configuraciones, el proyecto está listo para ejecutarse y desarrollarse con todas las dependencias necesarias y scripts definidos.
+
+
+
+
+
+
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Migliazza Maquinarias SRL</title>
+
+  <meta charset="utf-8" />
+
+  <!--estupidamente importante, sin estas dos lineas de abajo, no funicona el responsive de bootstrap para los forms-->
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="shortcut icon" href="/images/tracor-easy.ico" type="image/x-icon">
+
+  <!-- CSS only -->
+  <link rel="stylesheet" href="/stylesheets/style.css">
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap" rel="stylesheet">
+
+  <link href="https://fonts.googleapis.com/css?family=Archivo+Narrow" rel="stylesheet" type="text/css">
+
+  <link rel='shortcut icon' type='image/x-icon' href='favicon.ico' />
+
+  <!--Links del index-estable que me paso leonardo-->
+
+  <link href="/css/bootstrap.min.css" rel="stylesheet">
+  <link href='https://fonts.googleapis.com/css?family=Open%20Sans' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Varela%20Round' rel='stylesheet' type='text/css'>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@900&display=swap" rel="stylesheet">
+  <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Comfortaa' rel='stylesheet' type='text/css'>
+
+  <link href="/css/style.css" rel="stylesheet" type="text/css" />
+
+  <!---->
+
+  <link rel="stylesheet" href="/css/bloques_.css">
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@2.10.2/dist/umd/popper.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.5.2/dist/js/bootstrap.min.js"></script>
+
+
+</head>
+
+<body>
+
+  {{{body}}}
+
+
+
+  <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
+
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+
+
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+  <script src="https://kit.fontawesome.com/8c06fddfe7.js" crossorigin="anonymous"></script>
+
+  <!--<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>-->
+
+  <!--SCRIPTS que me paso leonardo del index-estable.html    
+   <link href="view/css/bootstrap.min.css" rel="stylesheet">
+  jquery
+  <script src="https://code.jquery.com/jquery-3.6.3.min.js"></script>
+
+  <script src="/js/jquery.min.js"></script>
+
+  <script src="/js/bootstrap.min.js"></script>
+
+  <script src="/js/scripts.js"></script>
+
+   <script src="js/respond.js"></script>
+   
+   <link href="view/css/styles.css" rel="stylesheet">
+ --->
+
+
+</body>
+
+</html>

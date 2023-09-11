@@ -1,0 +1,70 @@
+<div class="container-fluid">
+  <div class="row">
+
+    <div class="col-md-2 sinpadding">
+      {{> lateralBeta}}
+    </div>
+    <!--DENTRO DE ESTE DIV VA: la cabecera y el contenido-->
+
+    <div class="col-md-10 sinpadding">
+
+      {{> cabeceraBeta}}<!--cabecera-->
+
+
+      <div class="row box-ind sinpadding"><!-- Dentro de este div va todo el contenido-->
+
+        <div class="col-md-12 box-cajas">
+
+          <div class="row mt-2 mb-2">
+            <div class="col-md-4">
+              <h4>Tipos de maquinarias</h4>
+            </div>
+          </div>
+
+          <div class="list-opciones">
+            <a href="/listado_tipo_maquinaria/cargar" class="btn btn-warning"> <i class='bx bx-plus-circle'></i> Cargar
+              tipo</a>
+          </div>
+
+          {{#each machine_type}}
+          <div class="container-fluid espacio-bloque">
+            <div class="row">
+              <div class="col-md-1 fondo-color-gris-icono">
+                <i class='bx bxs-truck'></i>
+              </div>
+              <div class="col-md-11 fondo-color-gris-contenido">
+                <div class="row">
+
+                  <div class="col-md-4 propiedad-columna-bloque-txt">
+                    <p><strong>Tipo: </strong> {{machine}}</p>
+                  </div>
+                  <div class="col-md-4 propiedad-columna-bloque-txt">
+
+                  </div>
+                  <div class="col-md-4 propiedad-columna-bloque-boton">
+
+                    <details class="btn btn-secondary">
+                      <summary>Detalles</summary>
+                      <a style="display: block;" href="/listado_tipo_maquinaria/eliminar/{{id}}">Borrar</a>
+                      <a style="display: block;" href="/listado_tipo_maquinaria/modificar/{{id}}">Editar</a>
+                    </details>
+                  </div><!--Findde Col md3 -->
+
+                </div>
+              </div>
+            </div>
+          </div>
+          {{/each}}
+
+
+        </div><!--fin col-md-12 box-cajas-->
+
+      </div><!--fin row box-ind-->
+
+    </div><!--fin col-md-10-->
+
+  </div><!--fin row-->
+
+
+  <div><!--fin container fluid-->
+    <!---->

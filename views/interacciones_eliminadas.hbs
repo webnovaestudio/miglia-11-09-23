@@ -1,0 +1,261 @@
+<div class="container-fluid">
+  <div class="row">
+
+    <div class="col-md-2 sinpadding">
+      {{> lateralBeta}}
+    </div>
+    <!--DENTRO DE ESTE DIV VA: la cabecera y el contenido-->
+
+    <div class="col-md-10 sinpadding">
+
+      {{> cabeceraBeta}}<!--cabecera-->
+
+
+      <div class="row box-ind sinpadding"><!-- Dentro de este div va todo el contenido-->
+
+        <div class="col-md-12 box-cajas">
+
+          {{#if all}}
+
+          <div class="row mb-2 mt-2">
+            <div class="col-md-4">
+              <h4>Interacciones Eliminadas</h4>
+            </div>
+          </div>
+
+
+          {{#each interaccionesEliminadas}}
+          <div class="container-fluid espacio-bloque">
+            <div class="row">
+              <div class="col-md-1 fondo-color-dorado-icono">
+                <i class='bx bxs-contact'></i>
+              </div>
+              <div class="col-md-11 fondo-color-dorado-contenido">
+                <div class="row">
+
+                  <div class="col-md-4 propiedad-columna-bloque-txt">
+                    <div>
+                      <strong>Responsable de seguimiento:</strong> {{seguimiento}}
+                    </div>
+
+                    <div>
+                      <strong>Estado interacción: </strong> {{estado_interaccion}}
+                    </div>
+
+                    <div>
+                      <strong>Próximo contacto: </strong> {{"DATE_FORMAT(inte.proximo_contacto, '%d-%m-%Y')"}}
+                    </div>
+
+                  </div>
+
+                  <div class="col-md-4 propiedad-columna-bloque-txt">
+                    <div>
+                      <strong>Razón social:</strong> {{razon_social}}
+                    </div>
+
+                    <div>
+                      <strong>Teléfono: </strong> {{telefono}}
+                    </div>
+
+                    <div>
+                      <strong>Interés en: </strong> {{interesado_en}}
+                    </div>
+                  </div>
+
+                  <div class="col-md-4 propiedad-columna-bloque-boton">
+
+                    <details class="btn btn-warning">
+                      <summary>Detalles</summary>
+
+                      <a style="display: block;" href="/estadoInteraccion/interacciones_eliminadas/{{id}}">Ver</a>
+                      <a style="display: block;" href="/estadoInteraccion/habilitar/{{id}}">Habilitar</a>
+
+                    </details>
+                  </div><!--Findde Col md3 -->
+
+                </div>
+              </div>
+            </div>
+          </div>
+          {{/each}}
+
+
+          {{else}}
+
+          <div class="container-fluid">
+            <div class="row">
+              <div class="col-md-12 txt-contenido-single">
+                <div class="row mt-2 mb-2">
+                  <div class="col-md-4">
+                    <h4>Interacción Completa</h4>
+                  </div>
+                </div>
+                <div class="row">
+
+                  <div class="col-md-4">
+                    <div class="row">
+
+                      <div class="col-md-6">
+                        Nombres:
+                      </div>
+
+                      <div class="col-md-6 negrita">
+                        {{#each interaccionUnica}}
+                        {{nombre_de_contacto}}
+                        {{/each}}
+                      </div>
+
+                      <div class="col-md-6">
+                        Correo electrónico:
+                      </div>
+
+                      <div class="col-md-6 negrita">
+                        {{#each interaccionUnica}}
+                        {{correo_electronico}}
+                        {{/each}}
+                      </div>
+
+                      <div class="col-md-6">
+                        Teléfono:
+                      </div>
+
+                      <div class="col-md-6 negrita">
+                        {{#each interaccionUnica}}
+                        {{telefono}}
+                        {{/each}}
+                      </div>
+                      <div class="col-md-6">
+
+                        Localidad:
+                      </div>
+
+                      <div class="col-md-6 negrita">
+                        {{#each interaccionUnica}}
+                        {{localidad}}
+                        {{/each}}
+
+                      </div>
+                    </div>
+                  </div><!--Fin de Columna -->
+
+
+                  <div class="col-md-4">
+                    <div class="row">
+
+
+
+                      <div class="col-md-6">
+                        Provincia:
+                      </div>
+
+                      <div class="col-md-6 negrita">
+                        {{#each interaccionUnica}}
+                        {{provincia}}
+                        {{/each}}
+                      </div>
+
+                      <div class="col-md-6">
+                        Cuit:
+                      </div>
+
+                      <div class="col-md-6 negrita">
+                        {{#each interaccionUnica}}
+                        {{cuit}}
+                        {{/each}}
+                      </div>
+
+                      <div class="col-md-6">
+                        Estado interacción:
+                      </div>
+
+                      <div class="col-md-6 negrita">
+                        {{#each interaccionUnica}}
+                        {{estado_interaccion}}
+                        {{/each}}
+                      </div>
+
+                      <div class="col-md-6">
+                        Semáforo comercial:
+                      </div>
+
+                      <div class="col-md-6 negrita">
+                        {{#each interaccionUnica}}
+                        {{semaforo_comercial}}
+                        {{/each}}
+                      </div>
+
+                    </div>
+                  </div><!--Fin de Columna -->
+
+
+                  <div class="col-md-4">
+                    <div class="row">
+
+                      <div class="col-md-6">
+                        Tipo maquinaria:
+                      </div>
+
+                      <div class="col-md-6 negrita">
+                        {{#each interaccionUnica}}
+                        {{tipo_maquinaria}}
+                        {{/each}}
+                      </div>
+
+                      <div class="col-md-6">
+                        Modelo máquina:
+                      </div>
+
+                      <div class="col-md-6 negrita">
+                        {{#each interaccionUnica}}
+                        {{modelo_maquina}}
+                        {{/each}}
+                      </div>
+
+                      <div class="col-md-6">
+                        Seguimiento:
+                      </div>
+
+                      <div class="col-md-6 negrita">
+                        {{#each interaccionUnica}}
+                        {{seguimiento}}
+                        {{/each}}
+                      </div>
+
+
+
+
+
+                    </div>
+                  </div>
+
+
+
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+          <div class="textarea-container">
+            {{#each interaccionUnica}}
+            <textarea name="observaciones" placeholder="Escribe aquí las observaciones">{{observaciones}}</textarea>
+            {{/each}}
+          </div>
+
+
+
+          {{/if}}
+
+
+
+        </div><!--fin col-md-12 box-cajas-->
+
+      </div><!--fin row box-ind-->
+
+    </div><!--fin col-md-10-->
+
+  </div><!--fin row-->
+
+
+  <div><!--fin container fluid-->
+    <!---->

@@ -1,0 +1,64 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-2 sinpadding">
+      {{> lateralBeta}}
+    </div>
+    <!--DENTRO DE ESTE DIV VA: la cabecera y el contenido-->
+
+    <div class="col-md-10 sinpadding">
+
+      {{> cabeceraBeta}}<!--cabecera-->
+
+      <div class="row box-ind sinpadding"><!-- Dentro de este div va todo el contenido-->
+        <div class="col-md-12 box-cajas">
+          <div class="container-fluid">
+
+            <div class="row">
+              <details>
+                <summary>Recomendación</summary>
+                <p>Coloque los nombres de los tipos de maquinaria en singular.</p>
+              </details>
+            </div>
+
+
+            <div class="row mb-2 mt-2">
+              <div class="col-md-4">
+                <h4>Editar tipo de maquinaria</h4>
+              </div>
+            </div>
+
+            <div class="row">
+              {{#each datos}}
+              <form action="/listado_tipo_maquinaria/modificar/{{id}}/create" method="post" class="form-group">
+
+                <div class="row">
+                  <div class="col-md-6">
+                    <input type="text" class="form-control" name="machine" value="{{machine}}">
+                  </div>
+                </div>
+
+                <div class="row">
+                  <div class="col-md-3 mt-3 mb-3">
+                    <button class="btn btn-warning" type="submit">Aplicar cambios</button>
+                  </div>
+                </div>
+
+
+              </form>
+              {{/each}}
+            </div>
+
+
+
+          </div>
+
+        </div><!--fin col-md-12 box-cajas-->
+
+      </div><!--fin row box-ind-->
+
+    </div><!--fin col-md-10-->
+
+  </div><!--fin row-->
+
+
+  <div><!--fin container fluid-->

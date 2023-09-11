@@ -1,0 +1,46 @@
+<div class="container-fluid">
+  <div class="row">
+
+    <div class="col-md-2 sinpadding">
+      {{> lateralBeta}}
+    </div>
+    <!--DENTRO DE ESTE DIV VA: la cabecera y el contenido-->
+
+    <div class="col-md-10 sinpadding">
+
+      {{> cabeceraBeta}}<!--cabecera-->
+
+
+      <div class="row box-ind sinpadding"><!-- Dentro de este div va todo el contenido-->
+
+        <div class="col-md-12 box-cajas"><!--Comienzo col 12-->
+
+          <div class="row">
+            <div class="row mt-2 mb-2">
+              <div class="col-md-4">
+                <h4>Cargar foto destacada</h4>
+              </div>
+            </div>
+
+            <form action="/cargar-foto/{{id}}/create" class="form-group" method="post" enctype="multipart/form-data">
+
+              <label for="foto_destacada">Seleccione la foto destacada</label>
+              <input class="form-control w-50" type="file" name="foto_destacada" placeholder="Seleccione una foto">
+
+              <div class="row">
+                <div class="col-md-3 mt-3 mb-3">
+                  <button type="submit" class="btn btn-primary">Subir foto</button>
+                </div>
+              </div>
+            </form>
+
+          </div>
+
+        </div><!--fin row box-ind-->
+
+      </div><!--fin col-md-10-->
+
+    </div><!--fin row-->
+
+
+    <div><!--fin container fluid-->

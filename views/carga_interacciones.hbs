@@ -1,0 +1,189 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-2 sinpadding">
+      {{> lateralBeta}}
+    </div>
+
+    <!--DENTRO DE ESTE DIV VA: la cabecera y el contenido-->
+    <div class="col-md-10 sinpadding">
+
+      {{> cabeceraBeta}}<!--cabecera-->
+
+      <div class="row box-ind sinpadding"><!-- Dentro de este div va todo el contenido-->
+        <div class="col-md-12 box-cajas">
+          <div class="row">
+            <div class="col-md-3">
+              <h4 class="p-1">Cargar interacción</h4>
+            </div>
+          </div>
+
+          <form class="form-group" action="/carga_interacciones/create" method="post">
+            <!--primer cuatro de columnas-->
+            <div class="row">
+
+              <div class="col-md-3">
+                <label class="form-label" for="razon_social">Razón social </label>
+                <input class="form-control " type="text" name="razon_social" placeholder="Razón social">
+
+              </div>
+
+              <div class="col-md-3">
+
+                <label class="form-label" for="nombre_de_contacto">Nombre de contacto</label>
+                <input class="form-control " type="text" name="nombre_de_contacto" placeholder="Nombre de contacto(*)">
+
+
+              </div>
+
+              <div class="col-md-3">
+                <label for="telefono">Teléfono </label>
+                <input class="form-control " type="text" name="telefono" placeholder="Teléfono (*)">
+
+              </div>
+
+              <div class="col-md-3">
+                <label class="form-label" for="localidad">Localidad</label>
+                <input class="form-control " type="text" name="localidad" placeholder="Localidad">
+
+              </div>
+
+            </div>
+
+            <div class="row">
+
+              <div class="col-md-3 ">
+                <label for="provincia">Provincia</label>
+                <select name="provincia" id="" class="form-control ">
+                  <option value="Buenos Aires">Buenos Aires</option>
+                  <option value="Ciudad Autónoma de Buenos Aires">Ciudad Autónoma de Buenos Aires</option>
+                  <option value="Catamarca">Catamarca</option>
+                  <option value="Chaco">Chaco</option>
+                  <option value="Chubut">Chubut</option>
+                  <option value="Córdoba">Córdoba</option>
+                  <option value="Corrientes">Corrientes</option>
+                  <option value="Entre Ríos">Entre Ríos</option>
+                  <option value="Formosa">Formosa</option>
+                  <option value="Jujuy">Jujuy</option>
+                  <option value="La Pampa">La Pampa</option>
+                  <option value="La Rioja">La Rioja</option>
+                  <option value="Mendoza">Mendoza</option>
+                  <option value="Misiones">Misiones</option>
+                  <option value="Neuquén">Neuquén</option>
+                  <option value="Río Negro">Río Negro</option>
+                  <option value="Salta">Salta</option>
+                  <option value="San Juan">San Juan</option>
+                  <option value="San Luis">San Luis</option>
+                  <option value="Santa Cruz">Santa Cruz</option>
+                  <option value="Santa Fe">Santa Fe</option>
+                  <option value="Santiago del Estero">Santiago del Estero</option>
+                  <option value="Tierra del Fuego">Tierra del Fuego</option>
+                  <option value="Tucumán">Tucumán</option>
+                </select>
+              </div>
+
+              <div class="col-md-3 ">
+                <label class="form-label" for="correo_electronico">Correo electrónico </label>
+                <input class="form-control " type="email" name="correo_electronico" placeholder="Correo electrónico">
+              </div>
+
+              <div class="col-md-3">
+
+                <label class="form-label" for="cuit">Cuit </label>
+                <input class="form-control " type="text" name="cuit" min="11" max="11" placeholder="Cuit">
+
+              </div>
+
+              <div class="col-md-3">
+                <label class="form-label" for="interesado_en">Interesado en </label>
+                <select class="form-control " name="interesado_en" id="">
+                  <option value="Máquina Agrícola">Máquina Agrícola</option>
+                  <option value="Servicio Mecánico">Servicio Mecánico</option>
+                  <option value="Repuestos">Repuestos</option>
+                </select>
+              </div>
+
+            </div>
+
+            <div class="row">
+
+              <div class="col-md-3">
+                <label class="form-label " for="Tipo de maquinaria">Tipo de maquinaria </label>
+                <select class="form-control " name="tipo_maquinaria" id="">
+
+                  {{#each machines}}
+                  <option value="{{machine}}">{{machine}}</option>
+                  {{/each}}
+
+                </select>
+
+              </div>
+
+              <div class="col-md-3">
+                <label class="form-label" for="modelo_maquina"> Modelo máquina </label>
+                <input class="form-control " type="text" name="modelo_maquina" placeholder="Modelo máquina">
+              </div>
+
+              <div class="col-md-3">
+                <label class="form-label" for="seguimiento"> Responsable de Seguimiento</label>
+                <select class="form-control " name="seguimiento" id="">
+                  {{#each sellers}}
+                  <option value="{{nombre_vendedor}}">{{nombre_vendedor}}</option>
+                  {{/each}}
+                </select>
+
+              </div>
+
+
+              <div class="col-md-3">
+                <label class="form-label" for="proximo_contacto"> Próximo contacto</label>
+                <input class="form-control " type="date" name="proximo_contacto" placeholder="Próximo contacto">
+
+              </div>
+
+            </div>
+
+            <div class="row">
+              <div class="col-md-3 ">
+                <label class="form-label" for="estado_interaccion"> Estado interacción </label>
+                <select class="form-control " name="estado_interaccion" id="">
+                  <option selected value="En curso">En curso</option>
+                  <option value="Pendiente">Pendiente</option>
+                  <option value="Concretada">Concretada</option>
+                  <option value="Cancelada">Cancelada</option>
+                </select>
+              </div>
+
+              <div class="col-md-3">
+                <label class="form-label" for="semaforo_comercial">Semáforo comercial </label>
+
+                <select class="form-control  " name="semaforo_comercial" id="">
+                  <option selected value="verde">Verde</option>
+                  <option value="rojo">Rojo</option>
+                  <option value="amarillo">Amarillo</option>
+                  <option value="Sin clasificar">Sin clasificar</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="textarea-container">
+              <textarea name="observaciones" placeholder="Escribe aquí las observaciones"></textarea>
+            </div>
+
+            <div class="row">
+              <div class="col-md-3 mt-3 mb-3">
+                <button type="submit" class="btn btn-warning">Cargar interacción</button>
+              </div>
+            </div>
+
+          </form>
+
+        </div><!--fin col-md-12 box-cajas-->
+
+      </div><!--fin row box-ind-->
+
+    </div><!--fin col-md-10-->
+
+  </div><!--fin row-->
+
+
+  <div><!--fin container fluid-->

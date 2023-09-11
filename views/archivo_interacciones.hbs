@@ -1,0 +1,42 @@
+<div class="container-fluid">
+  <div class="row">
+
+    <div class="col-md-2 sinpadding">
+      {{> lateralBeta}}
+    </div>
+    <!--DENTRO DE ESTE DIV VA: la cabecera y el contenido-->
+
+    <div class="col-md-10 sinpadding">
+
+      {{> cabeceraBeta}}<!--cabecera-->
+
+
+      <div class="row box-ind sinpadding"><!-- Dentro de este div va todo el contenido-->
+
+        <div class="col-md-12 box-cajas">
+
+          <div style="background-color: transparent;" class="list-opciones">
+
+            <a href="/estadoInteraccion/concretada" class="btn btn-info" style="display: inline-block;"> <i
+                class='bx bx-conversation'></i> Interacciones Concretadas</a>
+
+            <a href="/estadoInteraccion/cancelada" class="btn btn-info" style="display: inline-block;"> <i
+                class='bx bx-conversation'></i> Interacciones Canceladas</a>
+
+            <a href="/estadoInteraccion/interacciones_eliminadas" class="btn btn-danger" style="display: inline-block;">
+              <i class='bx bx-folder-minus'></i> Interacciones Eliminadas</a>
+          </div>
+
+
+
+        </div><!--fin col-md-12 box-cajas-->
+
+      </div><!--fin row box-ind-->
+
+    </div><!--fin col-md-10-->
+
+  </div><!--fin row-->
+
+
+  <div><!--fin container fluid-->
+    <!---->

@@ -1,0 +1,79 @@
+<div class="container-fluid">
+  <div class="row">
+
+    <div class="col-md-2 sinpadding">
+      {{> lateralBeta}}
+    </div>
+    <!--DENTRO DE ESTE DIV VA: la cabecera y el contenido-->
+
+    <div class="col-md-10 sinpadding">
+
+      {{> cabeceraBeta}}<!--cabecera-->
+
+
+      <div class="row box-ind sinpadding"><!-- Dentro de este div va todo el contenido-->
+
+        <div class="col-md-12 box-cajas">
+          <div class="container-fluid">
+
+            <div class="row mt-2 mb-2">
+              <div class="col-md-4">
+                <h4>Vendedores</h4>
+              </div>
+            </div>
+
+            {{#each sellers}}
+            <div class="container-fluid espacio-bloque">
+              <div class="row">
+                <div class="col-md-1 fondo-color-azul-icono">
+                  <i class='bx bx-user'></i>
+                </div>
+                <div class="col-md-11 fondo-color-azul-contenido">
+                  <div class="row">
+
+                    <div class="col-md-4 propiedad-columna-bloque-txt">
+                      <div>
+                        <strong>Nombre:</strong> {{nombre_vendedor}}
+                      </div>
+                      <div>
+                        <strong>Perfil:</strong> {{perfil}}
+                      </div>
+                    </div>
+
+                    <div class="col-md-4 propiedad-columna-bloque-txt">
+                      <div>
+                        <strong>Teléfono: </strong> {{telefono}}
+                      </div>
+
+                      <div>
+                        <strong>Mail: </strong> {{correo_electronico}}
+                      </div>
+                    </div>
+
+                    <div class="col-md-4 propiedad-columna-bloque-boton">
+
+                      <details class="btn btn-primary">
+                        <summary>Detalles</summary>
+                        <a href="/empleados/{{id}}">Ver</a>
+                        <br>
+                        <a href="/empleados/eliminar/{{id}}">Borrar</a>
+                      </details>
+                    </div><!--Findde Col md3 -->
+
+                  </div>
+                </div>
+              </div>
+            </div>
+            {{/each}}
+          </div>
+
+        </div><!--fin col-md-12 box-cajas-->
+
+      </div><!--fin row box-ind-->
+
+    </div><!--fin col-md-10-->
+
+  </div><!--fin row-->
+
+
+  <div><!--fin container fluid-->

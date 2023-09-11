@@ -1,0 +1,60 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-2 sinpadding">
+      {{> lateralBeta}}
+    </div>
+    <!--DENTRO DE ESTE DIV VA: la cabecera y el contenido-->
+    <div class="col-md-10 sinpadding">
+      {{> cabeceraBeta}}<!--cabecera-->
+      <div class="row box-ind sinpadding"><!-- Dentro de este div va todo el contenido-->
+        <div class="col-md-12 box-cajas">
+          <div class="row mt-2 mb-2">
+            <div class="col-md-4">
+              <h4>Editar Comentario </h4>
+            </div>
+          </div>
+
+          {{#each singleComentario}}
+          <form class="form-group" action="/interacciones/editar-comentario/{{id_comentario}}/create" method="post">
+            <div class="row">
+              <div class="col-md-6">
+                <label for="id interaccion" class="form-label">Id de la interacción</label>
+                <input class="form-control" type="number" name="id_interaccion" id="" value="{{id_interaccion}}"
+                  max="{{id_interaccion}}" min="{{id_interaccion}}">
+              </div>
+              {{/each}}
+
+              <div class="col-md-6">
+                <label for="id empleado" class="form-label">Editar como </label>
+                <select class="form-control" name="id_empleado" id="">
+                  {{#each DatosEditor}}
+                  <option value="{{id}}">{{nombre_vendedor}}</option>
+                  {{/each}}
+                </select>
+              </div>
+
+              <div class="row">
+
+                {{#each singleComentario}}
+                <label for="comentario_usuario"> Agregar comentario</label>
+                <textarea class="form-control" name="comentario_usuario" placeholder="Aqui..." id="" cols="30"
+                  rows="10">{{comentario_usuario}}</textarea>
+                {{/each}}
+
+              </div>
+              {{#each DatosEditor}}
+              <button type="submit" class="btn btn-warning w-100 mt-3">Editar Comentario como
+                <strong>{{nombre_vendedor}}</button>
+              {{/each}}
+
+          </form>
+
+        </div><!--fin col-md-12 box-cajas-->
+
+      </div><!--fin row box-ind-->
+
+    </div><!--fin col-md-10-->
+
+  </div><!--fin row-->
+
+  <div><!--fin container fluid-->

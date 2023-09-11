@@ -1,0 +1,202 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-2 sinpadding">
+      {{> lateralBeta}}
+    </div>
+    <!--DENTRO DE ESTE DIV VA: la cabecera y el contenido-->
+    <div class="col-md-10 sinpadding">
+
+      {{> cabeceraBeta}}<!--cabecera-->
+
+      <div class="row box-ind sinpadding"><!-- Dentro de este div va todo el contenido-->
+        <div class="col-md-12 box-cajas">
+          <div class="row mt-2 mb-2">
+            <div class="col-md-4">
+              <h4>Editar Interacción</h4>
+            </div>
+          </div>
+          <!--me faltan los datos -->
+          {{#each datos}}
+
+          <form class="form-group" action="/interacciones/modificar/{{id}}/create" method="post">
+
+            {{/each}}
+
+            <!--primer cuatro de columnas-->
+            <div class="row">
+
+              {{#each datos}}
+              <div class="col-md-3">
+                <label class="form-label" for="razon_social">Razon Social</label>
+                <input class="form-control " type="text" name="razon_social" value="{{razon_social}}">
+              </div>
+
+              <div class="col-md-3">
+                <label class="form-label" for="nombre_de_contacto">Nombre de contacto</label>
+                <input class="form-control " type="text" name="nombre_de_contacto" value="{{nombre_de_contacto}}">
+              </div>
+
+              <div class="col-md-3">
+                <label for="telefono">Teléfono</label>
+                <input class="form-control " type="text" name="telefono" value="{{telefono}}">
+              </div>
+
+              <div class="col-md-3">
+                <label class="form-label" for="Dirección">Dirección</label>
+                <input class="form-control " type="text" name="direccion" value="{{direccion}}">
+              </div>
+            </div>
+            <!--segunda cuatro de columnas-->
+            <div class="row">
+
+              <div class="col-md-3">
+                <label class="form-label" for="localidad">Localidad</label>
+                <input class="form-control " type="text" name="localidad" value="{{localidad}}">
+              </div>
+
+              <div class="col-md-3">
+                <label class="form-label " for="provincia">Provincia</label>
+                <select name="provincia" id="" class="form-control ">
+                  <option value="Buenos Aires">Buenos Aires</option>
+                  <option value="Ciudad Autónoma de Buenos Aires">Ciudad Autónoma de Buenos Aires</option>
+                  <option value="Catamarca">Catamarca</option>
+                  <option value="Chaco">Chaco</option>
+                  <option value="Chubut">Chubut</option>
+                  <option value="Córdoba">Córdoba</option>
+                  <option value="Corrientes">Corrientes</option>
+                  <option value="Entre Ríos">Entre Ríos</option>
+                  <option value="Formosa">Formosa</option>
+                  <option value="Jujuy">Jujuy</option>
+                  <option value="La Pampa">La Pampa</option>
+                  <option value="La Rioja">La Rioja</option>
+                  <option value="Mendoza">Mendoza</option>
+                  <option value="Misiones">Misiones</option>
+                  <option value="Neuquén">Neuquén</option>
+                  <option value="Río Negro">Río Negro</option>
+                  <option value="Salta">Salta</option>
+                  <option value="San Juan">San Juan</option>
+                  <option value="San Luis">San Luis</option>
+                  <option value="Santa Cruz">Santa Cruz</option>
+                  <option value="Santa Fe">Santa Fe</option>
+                  <option value="Santiago del Estero">Santiago del Estero</option>
+                  <option value="Tierra del Fuego">Tierra del Fuego</option>
+                  <option value="Tucumán">Tucumán</option>
+                  <option selected value="{{provincia}}">{{provincia}}</option>
+                </select>
+              </div>
+
+              <div class="col-md-3">
+                <label class="form-label" for="correo_electronico">Correo electrónico</label>
+                <input class="form-control " type="text" name="correo_electronico" value="{{correo_electronico}}">
+              </div>
+
+              <div class="col-md-3">
+                <label class="form-label" for="cuit">Cuit</label>
+                <input class="form-control" type="text" name="cuit" placeholder="" value="{{cuit}}">
+              </div>
+
+            </div>
+
+            <!--tercer cuatro de columnas-->
+            <div class="row">
+
+              <div class="col-md-3">
+                <label class="form-label" for="interesado_en">Interesado en</label>
+                <select class="form-control " name="interesado_en" id="">
+                  <option selected value="{{interesado_en}}">{{interesado_en}}</option>
+                  <option value="Máquina Agrícola">Máquina Agrícola</option>
+                  <option value="Servicio Mecánico">Servicio Mecánico</option>
+                  <option value="Repuestos">Repuestos</option>
+                </select>
+              </div>
+
+              <div class="col-md-3">
+                <label class="form-label" for="Tipo de maquinaria">Tipo de maquinaria</label>
+                <select class="form-control" name="tipo_maquinaria" id="">
+                  <option selected value="{{tipo_maquinaria}}">{{tipo_maquinaria}}</option>
+                  {{/each}}
+                  {{#each getMaquinaria_}}
+                  <option value="{{machine}}">{{machine}}</option>
+                  {{/each}}
+                </select>
+              </div>
+
+              <div class="col-md-3">
+                <label class="form-label" class="form-label" for="modelo_maquina">Modelo máquina</label>
+                {{#each datos}}
+                <input type="text" name="modelo_maquina" class="form-control " value="{{modelo_maquina}}">
+                {{/each}}
+              </div>
+
+
+              <div class="col-md-3">
+                <label class="form-label" for="seguimiento"> Responsable de Seguimiento</label>
+                <select class="form-control " name="seguimiento" id="">
+                  <!--Me agarra como seleccionado en responsable de seguimiento el que esta encargado realmente-->
+                  {{#each datos}}
+                  <option selected value="{{seguimiento}}">{{seguimiento}}</option>
+                  {{/each}}
+                  <!--Aca le doy mas opciones de encargados por si lo quiere cambiar al encargado.-->
+                  {{#each sellers}}
+                  <option value="{{nombre_vendedor}}">{{nombre_vendedor}}</option>
+                  {{/each}}
+                </select>
+
+              </div>
+            </div>
+
+            <div class="row">
+              {{#each datos}}
+              <div class="col-md-3">
+                <label class="form-label" for="proximo_contacto">Próximo contacto</label>
+                <input class="form-control" type="date" name="proximo_contacto" value="{{proximo_contacto}}">
+              </div>
+
+              <div class="col-md-3">
+                <label class="form-label" for="estado_interaccion"> Estado Interacción </label>
+                <select class="form-control  " name="estado_interaccion" id="">
+                  <option selected value="{{estado_interaccion}}">{{estado_interaccion}} </option>
+                  <option value="En curso">En curso</option>
+                  <option value="Pendiente">Pendiente</option>
+                  <option value="Concretada">Concretada</option>
+                  <option value="Cancelada">Cancelada</option>
+                </select>
+
+              </div>
+
+              <div class="col-md-3">
+                <label class="form-label" for="semaforo_comercial">Semáforo comercial</label>
+                <select class="form-control  " name="semaforo_comercial" id="">
+                  <option value="{{semaforo_comercial}}">{{semaforo_comercial}}</option>
+                  <option value="rojo">Rojo</option>
+                  <option value="amarillo">Amarillo</option>
+                  <option value="verde">Verde</option>
+                  <option value="Sin clasificar">Sin clasificar</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="textarea-container">
+              <textarea name="observaciones" placeholder="Escribe aquí las observaciones">{{observaciones}}</textarea>
+              {{/each}}
+            </div>
+
+
+
+            <div class="row">
+              <div class="col-md-3 mt-3 mb-3">
+                <button type="submit" class="btn btn-warning">Aplicar cambios</button>
+              </div>
+            </div>
+
+          </form>
+
+        </div><!--fin col-md-12 box-cajas-->
+
+      </div><!--fin row box-ind-->
+
+    </div><!--fin col-md-10-->
+
+  </div><!--fin row-->
+
+  <div><!--fin container fluid-->

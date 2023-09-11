@@ -1,0 +1,184 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-2 sinpadding">
+      {{> lateralBeta}}
+    </div>
+    <!--DENTRO DE ESTE DIV VA: la cabecera y el contenido-->
+
+    <div class="col-md-10 sinpadding">
+      {{> cabeceraBeta}}<!--cabecera-->
+
+      <div class="row box-ind sinpadding"><!-- Dentro de este div va todo el contenido-->
+
+        <div class="col-md-12 box-cajas">
+
+          <div class="row mt-2 mb-2">
+            <div class="col-md-4">
+              <h4>Cargar interacción</h4>
+            </div>
+          </div>
+
+          {{#each singleCliente}}
+
+          <form class="form-group" action="/cargar_interaccion_desde_clientes/{{id}}/create" method="post">
+
+            <div class="row">
+
+              <div class="col-md-3">
+                <label class="form-label" for="razon_social">Razón social </label>
+                <input class="form-control" type="text" name="razon_social" value="{{razon_social}}" readonly>
+
+              </div>
+
+              <div class="col-md-3">
+
+                <label class="form-label" for="nombre_de_contacto">Nombre de contacto</label>
+                <input class="form-control" type="text" name="nombre_de_contacto" value="{{nombre_de_contacto}}"
+                  readonly>
+
+
+              </div>
+
+              <div class="col-md-3">
+                <label for="">Teléfono</label>
+                <input class="form-control" type="text" name="telefono" value="{{telefono}}" readonly>
+
+              </div>
+
+
+              <div class="col-md-3">
+                <label class="form-label" for="localidad">Localidad</label>
+                <input class="form-control" type="text" name="localidad" value="{{localidad}}" readonly>
+
+              </div>
+
+            </div>
+
+            <div class="row">
+              <div class="col-md-3">
+                <label class="form-label" for="provincia">Provincia</label>
+                <select name="provincia" id="" class="form-control">
+                  <option selected value="{{provincia}}" readonly>{{provincia}}</option>
+                </select>
+
+              </div>
+
+              <div class="col-md-3">
+                <label class="form-label" for="correo_electronico">Correo electrónico</label>
+                <input class="form-control" type="email" name="correo_electronico" value="{{correo_electronico}}"
+                  readonly>
+
+              </div>
+
+              <div class="col-md-3">
+                <label class="form-label" for="cuit">Cuit</label>
+                <input class="form-control" type="text" name="cuit" min="11" max="11" value="{{cuit}}" readonly>
+
+              </div>
+
+
+              <div class="col-md-3">
+                <label class="form-label" for="interesado_en">Interesado en</label>
+                <select class="form-control" name="interesado_en" id="">
+                  <option value="Máquina Agrícola">Máquina Agrícola</option>
+                  <option value="Servicio Mecánico">Servicio Mecánico</option>
+                  <option value="Repuestos">Repuestos</option>
+                </select>
+
+              </div>
+            </div>
+            {{/each}}
+            <div class="row">
+              <div class="col-md-3">
+                <label class="form-label " for="Tipo de maquinaria">Tipo de maquinaria</label>
+                <select class="form-control" name="tipo_maquinaria" id="">
+                  {{#each machines}}
+                  <option value="{{machine}}">{{machine}}</option>
+                  {{/each}}
+                </select>
+              </div>
+
+              {{#each singleCliente}}
+              <div class="col-md-3">
+                <label class="form-label" for="modelo_maquina">Modelo máquina</label>
+                <input class="form-control" type="text" name="modelo_maquina" placeholder="Ingrese el modelo"
+                  value="{{modelo_maquina}}">
+              </div>
+              {{/each}}
+
+              <div class="col-md-3">
+                <label class="form-label" for="seguimiento"> Responsable de Seguimiento</label>
+                <select class="form-control" name="seguimiento" id="">
+                  {{#each sellers}}
+                  <option value="{{nombre_vendedor}}">{{nombre_vendedor}}</option>
+                  {{/each}}
+                </select>
+              </div>
+
+
+              {{#each singleCliente}}
+
+              <div class="col-md-3">
+                <label class="form-label" for="proximo_contacto">Próximo contacto </label>
+                <input class="form-control" type="date" name="proximo_contacto" placeholder="proximo contacto">
+              </div>
+
+            </div>
+
+            <div class="row">
+
+              <div class="col-md-3">
+                <label class="form-label" for="estado_interaccion">Estado interacción</label>
+                <select class="form-control" name="estado_interaccion" id="">
+
+                  <option value="En curso">En curso</option>
+                  <option value="Pendiente">Pendiente</option>
+                  <option value="Concretada">Concretada</option>
+                  <option value="Cancelada">Cancelada</option>
+                </select>
+
+              </div>
+
+              <div class="col-md-3">
+                <label class="form-label" for="semaforo_comercial">Semáforo comercial</label>
+                <select class="form-control " name="semaforo_comercial" id="">
+                  <option value="verde">Verde</option>
+                  <option value="rojo">Rojo</option>
+                  <option value="amarillo">Amarillo</option>
+                  <option value="Sin clasificar">Sin clasificar</option>
+                  <option selected value="{{semaforo_comercial}}">{{semaforo_comercial}}</option>
+
+                </select>
+
+
+              </div>
+
+            </div>
+
+            <div class="textarea-container">
+              <textarea name="observaciones" placeholder="Escribe aquí las observaciones">{{observaciones}}</textarea>
+            </div>
+
+            {{/each}}
+
+            <div class="row">
+              <div class="col-md-3 mt-3 mb-3">
+                <button type="submit" class="btn btn-warning">Cargar interacción</button>
+              </div>
+            </div>
+
+
+          </form>
+
+
+
+        </div><!--fin col-md-12 box-cajas-->
+
+      </div><!--fin row box-ind-->
+
+    </div><!--fin col-md-10-->
+
+  </div><!--fin row-->
+
+
+<div><!--fin container fluid-->

@@ -1,0 +1,104 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-2 sinpadding">
+      {{> lateralBeta}}
+    </div>
+    <!--DENTRO DE ESTE DIV VA: la cabecera y el contenido-->
+    <div class="col-md-10 sinpadding">
+      {{> cabeceraBeta}}<!--cabecera-->
+      <div class="row box-ind sinpadding"><!-- Dentro de este div va todo el contenido-->
+        <div class="col-md-12 box-cajas">
+
+          <div class="row mt-2 mb-2">
+            <div class="col-md-4">
+              <h4>Cargar maquinaria</h4>
+            </div>
+          </div>
+
+          <form class="form-group" action="/Cargar_Maquina/create" method="post">
+
+            <div class="row">
+
+              <div class="col-md-6">
+
+                <label class="form-label" for="Maquinaria Modalidad">Maquinaria Modalidad (nueva o usada)</label>
+                <select class="form-control" name="maquinaria_modalidad" id="">
+                  <option value="Nueva">Nueva</option>
+                  <option value="Usada">Usada</option>
+                </select>
+
+              </div>
+
+              <div class="col-md-6">
+
+                <label class="form-label" for="Tipo de maquinaria">Tipo de maquinaria</label>
+                <select class="form-control" name="tipo_de_maquinaria" id="">
+                  {{#each machines}}
+                  <option value="{{id}}">{{machine}}</option>
+                  {{/each}}
+                </select>
+
+              </div>
+
+            </div>
+
+            <div class="row">
+
+              <div class="col-md-6">
+                <label class="form-label" for="Modelo de Maquina">Marca y modelo</label>
+                <input class="form-control" type="text" name="modelo_maquina" id="" placeholder="Marca y modelo">
+              </div>
+
+              <div class="col-md-6">
+
+                <label class="form-label " for="Disponibilidad"> Disponibilidad</label>
+                <select class="form-control" name="disponibilidad" id="">
+                  <option value="Propia">Propia</option>
+                  <option value="En consignacion">En consignacion</option>
+                </select>
+
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-md-6">
+                <label class="form-label " for="Estado del equipo">Estado del equipo</label>
+                <select class="form-control" name="estado_del_equipo" id="">
+                  <option value="A supervisar">A supervisar</option>
+                  <option value="En buen estado">En buen estado</option>
+                  <option value="Regular">Regular</option>
+                  <option value="Muy buena">Muy buena</option>
+                  <option value="0km">0km</option>
+
+                </select>
+              </div>
+
+              <div class="col-md-6">
+                <label class="form-label " for="Precio en USD">Precio en USD</label>
+                <input class="form-control" type="text" name="precio_usd" placeholder="Ingrese el precio en USD">
+              </div>
+            </div>
+
+            <div class="textarea-container">
+              <textarea name="caracteristicas" placeholder="Escribe aquí las Características"></textarea>
+            </div>
+
+            <div class="row">
+              <div class="col-md-3 mt-3 mb-3">
+                <button class="btn btn-warning" type="submit">Cargar máquina</button>
+              </div>
+            </div>
+
+
+          </form>
+
+        </div><!--fin col-md-12 box-cajas-->
+
+      </div><!--fin row box-ind-->
+
+    </div><!--fin col-md-10-->
+
+  </div><!--fin row-->
+
+
+  <div><!--fin container fluid-->

@@ -1,0 +1,112 @@
+<div class="container-fluid" style="overflow: hidden;">
+	<div class="row">
+
+		<div class="col-md-2 sinpadding">
+			{{> lateralBeta}}
+		</div>
+		<!--DENTRO DE ESTE DIV VA: la cabecera y el contenido-->
+
+		<div class="col-md-10 sinpadding">
+
+			{{> cabeceraBeta}}<!--cabecera-->
+
+
+			<div class="row box-ind sinpadding"><!-- Dentro de este div va todo el contenido-->
+
+				<div class="col-md-12 box-cajas"><!--Comienzo col 12-->
+
+					<div class="row" style="background-color: #e4e9ed"><!--Row contenedor de bloques de colores -->
+
+						<div class="col-md-4">
+							<div id="bloque-naranja">
+								<div id="bloque-icono"><a href="#"><img src="images/tractor-solid.png" width="57px"
+											height="" border="0" /></a></div>
+								<div id="bloque-titulo"><a href="/maquinas_disponibles">Maquinaria Disponibles </a>
+								</div>
+								<div id="bloque-subtitulo"><strong>En venta, oportunidades, listado de equipos </strong>
+								</div>
+							</div>
+						</div>
+
+						<div class="col-md-4">
+							<div id="bloque-celeste">
+								<div id="bloque-icono"><a href="#"><img src="images/Vector.png" border="0" /></a></div>
+								<div id="bloque-titulo"><a href="/interacciones">Listado de Interacciones </a></div>
+								<div id="bloque-subtitulo"><strong>&Uacute;ltimos cargados, qu&eacute; quieren
+										comprar..</strong></div>
+							</div>
+						</div>
+
+						<div class="col-md-4">
+							<div id="bloque-azul">
+								<div id="bloque-icono"><a href="#"><img src="images/Vector (1).png" border="0" /></a>
+								</div>
+								<div id="bloque-titulo"><a href="/notificaciones">Tareas Pendientes</a></div>
+								<div id="bloque-subtitulo"><strong>Tareas pendientes y en curso </strong></div>
+							</div>
+						</div>
+					</div>
+
+
+				</div><!--FIn col de 12-->
+				<div class="row">
+
+					<div class="col-md-5"><!--Row contenedor de Tareas Pendientes -->
+						<div id="box-tareas-pendientes">
+							<div id="titulo-box">Tareas Pendientes - <a href="/notificaciones">Ver todas </a></div>
+							{{#each prox_contacto}}
+							<div id="bloque-tareas-pendientes">
+								<div id="icono-tarea-pendiente"><img src="images/icono-calendario.png" width="100%"
+										height="" /></div>
+								<div id="titulo-tarea-pendiente"><a href="#">{{nombre_de_contacto}}</a></div>
+								<div id="subtitulo-tarea-pendiente">2da Llamada: <strong
+										style="margin-right: 8px; margin-left: 8px;">{{"DATE_FORMAT(inte.proximo_contacto,
+										'%d-%m-%Y')"}}</strong><strong>{{seguimiento}}</strong></div>
+							</div><!--Fin de Bloque Tareas Pendientes -->
+							{{/each}}
+						</div><!--Fin de Box Tareas Pendientes -->
+					</div><!--Fin de Row contenedor de Tareas Pendientes -->
+
+
+					<div class="col-md-7"><!--Row contenedor Últimas Interacciones -->
+						<div id="box-ultimas-interacciones">
+							<div id="titulo-box">Últimas Interacciones Cargadas En El Sistema - <a
+									href="/interacciones">Ver todas </a></div>
+
+
+							{{#each ultimasConsultas}}
+
+							<div id="bloque-ultimas-interacciones">
+								<div id="icono-ultima-interaccion"><img src="images/icono-perfil.png" width="100%"
+										height="" /></div>
+								<div id="titulo-ultima-interaccion"><a href="#">{{razon_social}}</a><br /></div>
+								<div id="subtitulo-ultima-interaccion">
+									<div align="center">{{seguimiento}}</div>
+								</div>
+								<div id="bloque-data-ultima-interaccion">{{"DATE_FORMAT(inte.proximo_contacto,
+									'%d-%m-%Y')"}}</div>
+								<div id="bloque-data-ultima-interaccion">
+									<div id="estado-ultima-interaccion">{{estado_interaccion}}</div>
+								</div>
+								<div id="bloque-data-ultima-interaccion" style="margin-left: 10px;"><a
+										href="/interacciones/{{id}}">Ver</a></div>
+
+							</div><!--Fin de Bloque ultimas interacciones -->
+							{{/each}}
+						</div><!--Fin de Box Ultimas Interacciones -->
+					</div> <!--Fin de Row Ultimas Interacciones -->
+
+				</div>
+
+
+
+
+
+			</div><!--fin row box-ind-->
+
+		</div><!--fin col-md-10-->
+
+	</div><!--fin row-->
+
+
+	<div><!--fin container fluid-->

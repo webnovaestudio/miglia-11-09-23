@@ -1,0 +1,106 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-2 sinpadding">
+      {{> lateralBeta}}
+    </div>
+    <!--DENTRO DE ESTE DIV VA: la cabecera y el contenido-->
+
+    <div class="col-md-10 sinpadding">
+
+      {{> cabeceraBeta}}<!--cabecera-->
+
+      <div class="row box-ind sinpadding"><!-- Dentro de este div va todo el contenido-->
+        <div class="col-md-12 box-cajas">
+
+          <div class="row mt-2 mb-2">
+            <div class="col-md-4">
+              <h4>Cargar usuario</h4>
+            </div>
+          </div>
+
+          <form class="form-group" action="/empleados/carga_empleado/create" method="post">
+
+            <div class="row">
+
+
+              <div class="col-md-3">
+                <label for="nombre_vendedor">Nombre de usuario</label>
+                <input class="form-control move" type="text" name="nombre_vendedor" placeholder="Nombre de usuario">
+              </div>
+
+              <div class="col-md-3">
+                <label for="rol_de_usuario"> Rol del usuario </label>
+                <select class="form-control move" name="rol_de_usuario" id="">
+                  <option value="1">Administrador</option>
+                  <option value="0">Editor</option>
+                </select>
+              </div>
+
+              <div class="col-md-3">
+                <label for="perfil">Perfil de usuario</label>
+                <select class="form-control move" name="perfil" id="">
+                  <option value="Vendedor">Vendedor</option>
+                  <option value="Repuestero">Repuestero</option>
+                  <option value="Servicio Mecánico">Servicio Mecánico</option>
+                </select>
+              </div>
+
+              <div class="col-md-3">
+                <label for="teléfono">Teléfono</label>
+                <input class="form-control move" type="text" name="telefono" id="" placeholder="Teléfono">
+              </div>
+            </div>
+
+            <div class="row">
+
+
+              <div class="col-md-3">
+                <label for="correo_electronico">Correo electrónico </label>
+                <input class="form-control move" type="email" name="correo_electronico" id=""
+                  placeholder="Correo electrónico">
+              </div>
+
+              <div class="col-md-3">
+                <label for="ubicación">Ubicación</label>
+                <input class="form-control move" type="text" name="ubicacion" id="" placeholder="Ubicación">
+              </div>
+
+              <div class="col-md-3">
+                <label for="Zona Comercial">Zona Comercial</label>
+                <select class="form-control move" name="zona_comercial" id="">
+                  <option value="Zonar Sur">Zonar Sur</option>
+                  <option value="Zona Norte">Zona Norte</option>
+                  <option value="Zona Centro">Zona Centro</option>
+                </select>
+              </div>
+
+              <div class="col-md-3">
+                <label for="contraseña">Contraseña</label>
+                <input class="form-control move" type="password" name="contraseña" id="" placeholder="Contraseña">
+              </div>
+
+            </div>
+
+            <div class="textarea-container">
+              <textarea name="observaciones" placeholder="Escribe aquí las observaciones"></textarea>
+            </div>
+
+            <div class="row">
+              <div class="col-md-3 mt-3 mb-3">
+                <button class="btn btn-warning" type="submit">Cargar usuario</button>
+              </div>
+            </div>
+
+
+          </form>
+
+        </div><!--fin col-md-12 box-cajas-->
+
+      </div><!--fin row box-ind-->
+
+    </div><!--fin col-md-10-->
+
+  </div><!--fin row-->
+
+
+  <div><!--fin container fluid-->

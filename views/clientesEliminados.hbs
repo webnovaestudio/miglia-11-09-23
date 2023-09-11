@@ -1,0 +1,241 @@
+<div class="container-fluid">
+  <div class="row">
+
+    <div class="col-md-2 sinpadding">
+      {{> lateralBeta}}
+    </div>
+    <!--DENTRO DE ESTE DIV VA: la cabecera y el contenido-->
+
+    <div class="col-md-10 sinpadding">
+
+      {{> cabeceraBeta}}<!--cabecera-->
+
+
+      <div class="row box-ind sinpadding"><!-- Dentro de este div va todo el contenido-->
+
+        <div class="col-md-12 box-cajas">
+
+          {{#if all}}
+
+          <div class="row mb-2 mt-2">
+            <div class="col-md-4">
+              <h4>Clientes eliminados</h4>
+            </div>
+          </div>
+          {{#each clientesElim}}
+          <div class="container-fluid espacio-bloque">
+            <div class="row">
+              <div class="col-md-1 fondo-color-azul-icono">
+                <i class='bx bxs-user-rectangle'></i>
+              </div>
+              <div class="col-md-11 fondo-color-azul-contenido">
+                <div class="row">
+                  <div class="col-md-4 propiedad-columna-bloque-txt">
+
+                    <div>
+                      <strong>Razón social:</strong> {{razon_social}}
+                    </div>
+
+                    <div>
+                      <strong>Contacto: </strong> {{nombre_de_contacto}}
+                    </div>
+
+                    <div>
+                      <strong>Cuit: </strong> {{cuit}}
+                    </div>
+
+                    <div>
+                      <strong>Teléfono: </strong> {{telefono}}
+                    </div>
+
+
+                  </div>
+
+                  <div class="col-md-4 propiedad-columna-bloque-txt">
+
+                    <div>
+                      <strong>Semáforo comercial: </strong> {{semaforo_comercial}}
+                    </div>
+
+                    <div>
+                      <strong>Localidad:</strong> {{localidad}}
+                    </div>
+
+                    <div>
+                      <strong>Provincia: </strong> {{provincia}}
+                    </div>
+
+                  </div>
+
+                  <div class="col-md-4 propiedad-columna-bloque-boton">
+                    <details class="btn btn-primary">
+                      <summary>Detalles</summary>
+                      <a style="display: block;" href="/clientes_eliminados/{{id}}">Ver</a>
+
+                      <a style="display: block;" href="/clientes_eliminados/habilitar/{{id}}">Habilitar</a>
+                    </details>
+                  </div><!--Findde Col md3 -->
+
+                </div>
+              </div>
+            </div>
+          </div>
+          {{/each}}
+        </div>
+      </div>
+
+      {{else}}
+
+
+
+
+
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-md-12 txt-contenido-single">
+
+            {{#each cliente}}
+            <div class="row mb-2 mt-2">
+              <div class="col-md-4">
+                <h4>Datos Completos de {{nombre_de_contacto}}</h4>
+              </div>
+            </div>
+            {{/each}}
+
+
+            <div class="row">
+
+              <div class="col-md-6">
+                <div class="row">
+
+                  <div class="col-md-6">
+                    Nombres:
+                  </div>
+
+                  <div class="col-md-6 negrita">
+                    {{#each cliente}}
+                    {{nombre_de_contacto}}
+                    {{/each}}
+                  </div>
+
+                  <div class="col-md-6">
+                    Razon social:
+                  </div>
+
+                  <div class="col-md-6 negrita">
+                    {{#each cliente}}
+                    {{razon_social}}
+                    {{/each}}
+                  </div>
+
+
+                  <div class="col-md-6">
+                    Localidad:
+                  </div>
+
+
+                  <div class="col-md-6 negrita">
+                    {{#each cliente}}
+                    {{localidad}}
+                    {{/each}}
+                  </div>
+
+
+                  <div class="col-md-6">
+                    Dirección:
+                  </div>
+
+                  <div class="col-md-6 negrita">
+                    {{#each cliente}}
+                    {{direccion}}
+                    {{/each}}
+                  </div>
+
+                  <div class="col-md-6">
+                    Provincia:
+                  </div>
+
+                  <div class="col-md-6 negrita">
+                    {{#each cliente}}
+                    {{provincia}}
+                    {{/each}}
+                  </div>
+
+                </div>
+              </div><!--Fin de Columna -->
+
+
+              <div class="col-md-6">
+                <div class="row">
+
+                  <div class="col-md-6">
+                    Teléfono:
+                  </div>
+
+                  <div class="col-md-6 negrita">
+                    {{#each cliente}}
+                    {{telefono}}
+                    {{/each}}
+                  </div>
+
+                  <div class="col-md-6">
+                    Cuit:
+                  </div>
+
+                  <div class="col-md-6 negrita">
+                    {{#each cliente}}
+                    {{cuit}}
+                    {{/each}}
+                  </div>
+
+                  <div class="col-md-6">
+                    Semáforo Comercial:
+                  </div>
+
+                  <div class="col-md-6 negrita">
+                    {{#each cliente}}
+                    {{semaforo_comercial}}
+                    {{/each}}
+                  </div>
+                  <div class="col-md-6">
+                    Correo electrónico:
+                  </div>
+
+                  <div class="col-md-6 negrita">
+                    {{#each cliente}}
+                    {{correo_electronico}}
+                    {{/each}}
+                  </div>
+
+
+                </div>
+              </div><!--Fin de Columna -->
+
+
+              <div class="textarea-container">
+
+                {{#each cliente}}
+                <textarea name="observaciones" placeholder="Escribe aquí las observaciones">{{observaciones}}</textarea>
+                {{/each}}
+              </div>
+
+
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+      {{/if}}
+
+    </div><!--fin col-md-12 box-cajas-->
+
+  </div><!--fin row box-ind-->
+
+</div><!--fin col-md-10-->
+
+</div><!--fin row-->
+
+
+<div><!--fin container fluid-->
+  <!---->

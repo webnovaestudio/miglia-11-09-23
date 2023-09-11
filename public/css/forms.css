@@ -1,0 +1,17 @@
+/* CSS Document */
+.row align-items-start{
+	float: left;
+	width: 400px;
+}
+
+.col efect{
+
+}
+.form-label{
+	font-family: Poppins;
+	font-size: 16px;
+	background-color: #CCCCCC;
+	float: left;
+	width: 300px;
+	height: 450px;
+}

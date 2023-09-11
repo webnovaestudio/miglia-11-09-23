@@ -1,0 +1,90 @@
+<div class="container-fluid">
+
+  <div class="row">
+
+    <div class="col-md-2 sinpadding">
+      {{> lateralBeta}}
+    </div>
+    <!--DENTRO DE ESTE DIV VA: la cabecera y el contenido-->
+
+    <div class="col-md-10 sinpadding">
+
+      {{> cabeceraBeta}}<!--cabecera-->
+
+
+      <div class="row box-ind sinpadding"><!-- Dentro de este div va todo el contenido-->
+
+        <div class="col-md-12 box-cajas">
+
+          <div class="row mb-2 mt-2">
+            <div class="col-md-4">
+              <h4>Maquinas eliminadas</h4>
+            </div>
+          </div>
+
+          {{#each maquinas}}
+          <div class="container-fluid espacio-bloque">
+            <div class="row">
+              <div class="col-md-1 fondo-color-dorado-icono">
+                <i class='bx bxs-truck'></i>
+              </div>
+
+              <div class="col-md-11 fondo-color-dorado-contenido">
+
+                <div class="row">
+
+                  <div class="col-md-4 propiedad-columna-bloque-txt">
+
+                    <div>
+                      <strong>Categoría:</strong> {{machine}}
+                    </div>
+
+                    <div>
+                      <strong>Modalidad:</strong> {{maquinaria_modalidad}}
+                    </div>
+
+                    <div>
+                      <strong>Precio USD: </strong> {{precio_usd}}
+
+                    </div>
+
+                  </div>
+
+                  <div class="col-md-4 propiedad-columna-bloque-txt">
+                    <div>
+                      <strong>Marca y Modelo: </strong> {{modelo_maquina}}
+
+                    </div>
+
+                    <div>
+                      <strong>Estado: </strong> {{estado_del_equipo}}
+                    </div>
+
+                  </div>
+
+                  <div class="col-md-4 propiedad-columna-bloque-boton">
+
+                    <details class="btn btn-warning">
+                      <summary>Detalles</summary>
+
+
+                      <a style="display: block;" href="/maquinas_disponibles/habilitar/{{id}}">Habilitar</a>
+
+                    </details>
+                  </div><!--Findde Col md3 -->
+                </div>
+              </div>
+            </div>
+          </div>
+          {{/each}}
+        </div><!--fin col-md-12 box-cajas-->
+
+      </div><!--fin row box-ind-->
+
+    </div><!--fin col-md-10-->
+
+  </div><!--fin row-->
+
+
+  <div><!--fin container fluid-->
+    <!---->

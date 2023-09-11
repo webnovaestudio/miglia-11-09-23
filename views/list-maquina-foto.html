@@ -1,0 +1,131 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<title>Documento sin t&iacute;tulo</title>
+
+    <meta name="description" content="Maquetado por Leo Correa">
+    <meta name="author" content="Webnova">
+
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+	
+	<script src="https://kit.fontawesome.com/58908ba2af.js" crossorigin="anonymous"></script>
+
+
+</head>
+
+<body>
+
+<div class="container-fluid">
+	<div class="row">
+	
+		<div class="col-md-2">
+		FOTO 
+		</div>
+		
+		<div class="col-md-3">
+			<p>
+			<h3>TItulo demo de maquinaria agr�cola en venta con foto</h3>
+			</p>
+		</div>
+		
+		<div class="col-md-3">
+			<p>
+			Modelo: Tolva AXION 5467</br>
+			Tipo de m�quina: Tolva Cerealera</br>
+			Disponibilidad: Propia</br>
+			</p>
+		</div>
+		
+		<div class="col-md-2">
+			<p>
+			Modelo: Tolva AXION 5467</br>
+			Tipo de m�quina: Tolva Cerealera</br>
+			Disponibilidad: Propia</br>
+			</p>
+		</div>
+		
+		<div class="col-md-2">
+		BOTON
+		</div>
+		
+	</div>
+</div>
+
+</body>
+</html>
+
+
+<div class="row mt-2 mb-2">
+	<div class="col-md-4">
+	  <h4>Maquinaria disponible</h4>
+	</div>
+  </div>
+
+  <div class="row mt-2">
+	<div class="list-opciones">
+
+
+	  <a class="btn btn-outline-primary" href="/Cargar_maquina"> <i class='bx bx-plus-circle'></i> Cargar
+		maquinaria </a>
+	  <a class="btn btn-outline-primary" href="/maquinas_eliminadas"> <i class='bx bx-folder-minus'></i>
+		Maquinaria eliminada</a>
+
+
+	  <details style="display:inline-block ;" class="btn btn-outline-primary">
+		<summary>Filtrar categoría de máquinas</summary>
+
+		{{#each CategoriaMaquinaria}}
+		<div class="filtro-maquinas">
+		  <a href="/maquinariaPorTipo/{{machine}}" style="display: block;">{{machine}}</a>
+		</div>
+
+		{{/each}}
+	  </details>
+
+	  <a class="btn btn-outline-primary" href="/buscar_maquinaria"> <i class='bx bx-search-alt-2'></i> Buscar
+		maquinaria</a>
+	  <a href="/cargar-foto" class="btn btn-success" id="elemento">Foto destacada</a>
+	</div>
+  </div>
+
+  {{#each datos}}
+
+  <div class="container mt-4">
+	<!-- Fila contenedora -->
+	<div class="row">
+	  <!-- Columna para la imagen -->
+	  <div class="col-md-3">
+		<img src="{{foto}}" alt="No hay imagen cargada" class="custom-img img-fluid">
+	  </div>
+	  <!-- Columna para la información -->
+	  <div class="col-md-6">
+
+		<div class="mt-2"></div>
+		<p><strong>{{machine}} ${{precio_usd}}.</strong></p>
+		<p><strong>{{modelo_maquina}}.</strong></p>
+		<p><strong>{{maquinaria_modalidad}}, {{estado_del_equipo}}.</strong></p>
+
+	  </div>
+	  <!-- Columna para el botón -->
+	  <div class="col-md-3 mt-3 text-center">
+		<details class="btn btn-outline-primary">
+		  <summary>Detalles</summary>
+
+		  <a style="display: block;" href="/maquinas_disponibles/{{id}}">Ver</a>
+		  <a style="display: block;" href="/maquinas_disponibles/eliminar/{{id}}">Borrar</a>
+		  <a style="display: block;" href="/cargar-foto/">Editar foto</a>
+		  <a style="display: block;" href="/cargar-galeria/{{id}}">Cargar Galería</a>
+
+
+		</details>
+	  </div>
+	</div>
+  </div>
+  {{/each}}
+</div>
+</div>
+</div>
+</div>

@@ -1,0 +1,152 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-2 sinpadding">
+      {{> lateralBeta}}
+    </div>
+    <!--DENTRO DE ESTE DIV VA: la cabecera y el contenido-->
+    <div class="col-md-10 sinpadding">
+      {{> cabeceraBeta}}<!--cabecera-->
+      <div class="row box-ind sinpadding"><!-- Dentro de este div va todo el contenido-->
+        <div class="col-md-12 box-cajas">
+
+          <div class="row mt-2 mb-2">
+            <div class="col-md-4">
+              <h4>Buscar maquinaria</h4>
+            </div>
+          </div>
+
+          {{#if found}}
+
+          <div class="row">
+            <div class="col-md-12">
+              <form action="/buscar_maquinaria/create" method="get">
+                <div class="buscador">
+                  <div class="buscar-input">
+                    <label class="form-label" for="Maquinaria">Seleccione categoría</label>
+                    <select class="form-control" name="tipo_de_maquinaria" id="">
+                      <option value="" select> Elige una opción ↓ </option>
+                      {{#each tiposDeMaquinas}}
+                      <option value="{{id}}">{{machine}}</option>
+                      {{/each}}
+                    </select>
+                  </div>
+                  <div class="_buscar">
+                    <button class="btn btn-warning" type="submit">Buscar</button>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+
+          <div class="row mt-2 mb-2">
+            <div class="col-md-4">
+              <h4>Maquinaria disponible</h4>
+            </div>
+          </div>
+
+          {{#each buscando_maquina}}
+          <div class="container-fluid espacio-bloque">
+            <div class="row">
+              <div class="col-md-1 fondo-color-dorado-icono">
+                <i class='bx bxs-truck'></i>
+              </div>
+
+              <div class="col-md-11 fondo-color-dorado-contenido">
+
+                <div class="row">
+
+                  <div class="col-md-4 propiedad-columna-bloque-txt">
+
+                    <div>
+                      <strong>Categoría:</strong> {{machine}}
+                    </div>
+
+                    <div>
+                      <strong>Modalidad:</strong> {{maquinaria_modalidad}}
+                    </div>
+
+                    <div>
+                      <strong>Precio USD: </strong> {{precio_usd}}
+                    </div>
+
+                  </div>
+
+                  <div class="col-md-4 propiedad-columna-bloque-txt">
+                    <div>
+                      <strong>Marca y Modelo: </strong> {{modelo_maquina}}
+                    </div>
+
+                    <div>
+                      <strong>Estado: </strong> {{estado_del_equipo}}
+                    </div>
+
+                  </div>
+
+                  <div class="col-md-4 propiedad-columna-bloque-boton">
+                    <details class="btn btn-warning">
+                      <summary>Detalles</summary>
+
+                      <a style="display: block;" href="/maquinas_disponibles/{{id}}">Ver</a>
+                      <a style="display: block;" href="/maquinas_disponibles/eliminar/{{id}}">Borrar</a>
+                      <a style="display: block;" href="/maquinas_disponibles/modificar/{{id}}">Editar</a>
+
+                    </details>
+                  </div><!--Findde Col md3 -->
+                </div>
+              </div>
+            </div>
+          </div>
+          {{/each}}
+
+          {{else}}
+
+          <div class="row">
+
+            <div class="col-md-12">
+
+              <form action="/buscar_maquinaria/create" method="get">
+
+                <div class="buscador">
+
+                  <div class="buscar-input">
+                    <label class="form-label" for="Maquinaria">Seleccione categoría</label>
+                    <select class="form-control" name="tipo_de_maquinaria" id="">
+                      <option value="" select> Elige una opción ↓ </option>
+                      {{#each tiposDeMaquinas}}
+                      <option value="{{id}}">{{machine}}</option>
+                      {{/each}}
+                    </select>
+                  </div>
+
+                  <div class="_buscar">
+                    <button class="btn btn-warning" type="submit">Buscar</button>
+                  </div>
+
+                </div>
+
+              </form>
+
+            </div>
+
+          </div>
+
+          <div class="row">
+            <div class="col-md-12">
+              <p class="mt-3 alert alert-danger"> Cuando haya una coincidencia los resultados se mostraran aquí abajo.
+              </p>
+            </div>
+          </div>
+
+
+          {{/if}}
+
+
+        </div><!--fin col-md-12 box-cajas-->
+
+      </div><!--fin row box-ind-->
+
+    </div><!--fin col-md-10-->
+
+  </div><!--fin row-->
+
+  <div><!--fin container fluid-->

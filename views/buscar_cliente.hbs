@@ -1,0 +1,150 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-2 sinpadding">
+      {{> lateralBeta}}
+    </div>
+    <!--DENTRO DE ESTE DIV VA: la cabecera y el contenido-->
+    <div class="col-md-10 sinpadding">
+      {{> cabeceraBeta}}<!--cabecera-->
+      <div class="row box-ind sinpadding"><!-- Dentro de este div va todo el contenido-->
+        <div class="col-md-12 box-cajas">
+          {{#if found}}
+          <div class="row mt-2 mb-2">
+            <div class="col-md-4">
+              <h4>Buscar Cliente</h4>
+            </div>
+          </div>
+
+          <div class="row">
+
+            <div class="col-md-12">
+
+              <form action="/buscar_cliente/create" method="get">
+
+                <div class="buscador">
+
+                  <div class="buscar-input">
+                    <input class="form-control" type="text" name="razon_social"
+                      placeholder="Contacto, cuit o localidad">
+                  </div>
+
+                  <div class="_buscar_cliente">
+                    <button class="btn btn-warning" type="submit">Buscar</button>
+                  </div>
+
+                </div>
+
+              </form>
+            </div>
+          </div>
+
+          {{#each clientes}}
+
+          <div class="container-fluid espacio-bloque">
+            <div class="row">
+              <div class="col-md-1 fondo-color-azul-icono">
+                <i class='bx bxs-user-rectangle'></i>
+              </div>
+              <div class="col-md-11 fondo-color-azul-contenido">
+                <div class="row">
+                  <div class="col-md-4 propiedad-columna-bloque-txt">
+
+                    <div>
+                      <strong>Razón social:</strong> {{razon_social}}
+                    </div>
+
+                    <div>
+                      <strong>Contacto: </strong> {{nombre_de_contacto}}
+                    </div>
+
+                    <div>
+                      <strong>Cuit: </strong> {{cuit}}
+                    </div>
+
+                    <div>
+                      <strong>Teléfono: </strong> {{telefono}}
+                    </div>
+
+
+                  </div>
+
+                  <div class="col-md-4 propiedad-columna-bloque-txt">
+
+                    <div>
+                      <strong>Semáforo comercial: </strong> {{semaforo_comercial}}
+                    </div>
+
+                    <div>
+                      <strong>Localidad:</strong> {{localidad}}
+                    </div>
+
+                    <div>
+                      <strong>Provincia: </strong> {{provincia}}
+                    </div>
+
+                  </div>
+
+                  <div class="col-md-4 propiedad-columna-bloque-boton">
+                    <details class="btn btn-primary">
+                      <summary>Detalles</summary>
+                      <a style="display: block;" href="/clientes/{{id}}">Ver</a>
+                      <a style="display: block;" href="/cargar_interaccion_desde_clientes/{{id}}">Interacción</a>
+                      <a style="display: block;" href="/clientes/modificar/{{id}}">Editar</a>
+                      <a style="display: block;" href="/clientes/eliminar/{{id}}">Borrar</a>
+                    </details>
+                  </div><!--Findde Col md3 -->
+
+                </div>
+              </div>
+            </div>
+          </div>
+          {{/each}}
+
+          {{else}}
+
+          <div class="row mt-2 mb-2">
+            <div class="col-md-4">
+              <h4>Buscar Cliente</h4>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-12">
+              <form action="/buscar_cliente/create" method="get">
+                <div class="buscador">
+
+                  <div class="buscar-input">
+                    <input class="form-control" type="text" name="razon_social"
+                      placeholder="Contacto, cuit o localidad">
+                  </div>
+
+                  <div class="_buscar_cliente">
+                    <button class="btn btn-warning" type="submit">Buscar</button>
+                  </div>
+
+                </div>
+
+              </form>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-12">
+              <p class="mt-3 alert alert-danger"> Cuando haya una coincidencia los resultados se mostraran aquí abajo.
+              </p>
+            </div>
+          </div>
+
+          {{/if}}
+
+
+        </div><!--fin col-md-12 box-cajas-->
+
+      </div><!--fin row box-ind-->
+
+    </div><!--fin col-md-10-->
+
+  </div><!--fin row-->
+
+
+  <div><!--fin container fluid-->

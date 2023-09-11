@@ -93,7 +93,7 @@ const getFicha = async (req, res) => {
   
       if (maquinaPorId.length > 0) {
         // Referencia de foto destacada
-        referencia_foto = maquinaPorId[0]['foto_destacada'];
+        referencia_foto = maquinaPorId[0]['foto'];
   
         // URL de la foto destacada obtenida.
         url_foto = await getPublicUrlForPhoto(referencia_foto);

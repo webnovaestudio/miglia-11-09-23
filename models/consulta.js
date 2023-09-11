@@ -189,7 +189,7 @@ const getMaquinaria = async (habilitado) => {
 const maquinaSingle = async (id) => {
   try {
     const query =
-      "SELECT tm.foto_destacada, tm.machine, m.* FROM ?? as m JOIN ?? as tm ON m.tipo_de_maquinaria = tm.id WHERE m.id = ?";
+      "SELECT tm.machine, m.* FROM ?? as m JOIN ?? as tm ON m.tipo_de_maquinaria = tm.id WHERE m.id = ?";
     const params = [TABLA_MAQUINARIA, TABLA_TIPO_MAQUINARIAS, id]
     return await pool.query(query, params)
   }

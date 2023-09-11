@@ -55,7 +55,7 @@ async function resizeImage(buffer) {
 
 
 // Guardar fotos
-router.post('/:id/create', upload.single('foto_destacada'), async (req, res) => {
+router.post('/:id/create', upload.single('foto'), async (req, res) => {
   try {
     if (req.file) {
       console.log("Imagen encontrada, tratando de subirla...");
